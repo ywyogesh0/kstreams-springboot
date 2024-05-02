@@ -8,24 +8,14 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
         </processorPath>
-        <module name="explore-kafka-streams.advanced-streams.test" />
-        <module name="explore-kafka-streams.greeting-streams.main" />
-        <module name="explore-kafka-streams.advanced-streams.main" />
-        <module name="explore-kafka-streams.orders-kafka-streams-app.test" />
-        <module name="explore-kafka-streams.greeting-streams.test" />
-        <module name="explore-kafka-streams.orders-kafka-streams-app.main" />
+        <module name="com.learnkafkastreams.explore-kafka-streams.greeting-streams.test" />
+        <module name="com.learnkafkastreams.explore-kafka-streams.advanced-streams.main" />
+        <module name="com.learnkafkastreams.explore-kafka-streams.greeting-streams.main" />
+        <module name="com.learnkafkastreams.explore-kafka-streams.orders-kafka-streams-app.main" />
+        <module name="com.learnkafkastreams.explore-kafka-streams.orders-kafka-streams-app.test" />
+        <module name="com.learnkafkastreams.explore-kafka-streams.advanced-streams.test" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
-      <module name="explore-kafka-streams.advanced-streams" target="17" />
-      <module name="explore-kafka-streams.advanced-streams.main" target="17" />
-      <module name="explore-kafka-streams.advanced-streams.test" target="17" />
-      <module name="explore-kafka-streams.greeting-streams" target="17" />
-      <module name="explore-kafka-streams.greeting-streams.main" target="17" />
-      <module name="explore-kafka-streams.greeting-streams.test" target="17" />
-      <module name="explore-kafka-streams.orders-kafka-streams-app" target="17" />
-      <module name="explore-kafka-streams.orders-kafka-streams-app.main" target="17" />
-      <module name="explore-kafka-streams.orders-kafka-streams-app.test" target="17" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8" />
   </component>
 </project>

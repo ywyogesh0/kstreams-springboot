@@ -4,6 +4,17 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-streams-api-for-developers-final/explore-kafka-streams" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers-final/explore-kafka-streams" />
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers-final/explore-kafka-streams/advanced-streams" />
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers-final/explore-kafka-streams/greeting-streams" />
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers-final/explore-kafka-streams/orders-kafka-streams-app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams" />
         <option name="gradleHome" value="/usr/local/Cellar/gradle/8.7" />
         <option name="gradleJvm" value="17" />
