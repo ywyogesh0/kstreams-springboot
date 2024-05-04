@@ -25,7 +25,11 @@ public class GreetingsStreamApp {
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, AUTO_OFFSET_RESET);
 
         // Create Topics
-        createTopics(properties, List.of(TOPIC_GREETINGS_CONSUMER, TOPIC_GREETINGS_PRODUCER));
+        /*createTopics(properties, List.of(
+                TOPIC_GREETINGS_CONSUMER,
+                TOPIC_GREETINGS_PRODUCER,
+                TOPIC_GREETINGS_CONSUMER_2
+        ));*/
 
         // Launch KStream Application
         try {

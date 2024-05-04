@@ -1,0 +1,231 @@
+Topic :
+- Master the Kafka Streams API to build advanced real time Kafka Streaming applications using Java and SpringBoot 3.x
+
+- What you'll learn :
+1. Build Advanced Kafka Streams Applications using Streams API
+2. Exactly Once Processing - Transactions and Idempotent Producer
+3. Aggregate Multiple events in to aggregated events
+4. Aggregate Streams into Windowed Group of Events
+5. Testing Kafka Streams using TopologyTestDriver using jUnit5
+6. Build Interactive Queries to retrieve the aggregated data through RESTFUL APIs
+7. Build Kafka Streams Application using HighLevel DSL (Domain Specific Language)
+8. Build a Realtime Retail Streaming application using Streams API
+9. Join Multiple Streams into one Joined Stream
+10. Build Enterprise Standard Kafka Streams Application using SpringBoot
+11. Testing Spring Kafka Streams using EmbeddedKafka and jUnit5
+12. Interactive queries with multiple instances of the Kafka Streams Instance [MicroServices Pattern]
+
+Description :
+- Kafka Streams API is an advanced API that's part of the Kafka Ecosystem.
+
+- Using Kafka Streams API, We can :
+1. Apply data transformations
+2. Data enrichment
+3. Branching the data into multiple data streams
+4. Aggregating the data or joining data from multiple Kafka topics
+5. Aggregate the Data into Window Buckets and more
+
+- The Kafka Streams API For Developers using Java/SpringBoot course is structured to give you both the theoretical
+and coding experience of developing Kafka Streams Applications using Streams API
+and also covers the techniques to use Enterprise Standard Kafka Streams Application using SpringBoot and Streams API.
+
+- This is a pure hands-on oriented course where you will be learning the concepts through code.
+You will build a realtime Kafka Streams application by the end of this course.
+
+- By the end of this course, you will have a complete understanding of these concepts :
+1. Building Kafka Streams Applications using Streams API
+2. Building Kafka Streams Applications using SpringBoot & Streams API
+3. Write Interactive Queries to retrieve the aggregated data from a state store and expose it via RESTFUL API
+4. Unit and Integration Testing Kafka Streams Applications using jUnit5
+
+Sections :
+- Section 1 -> Getting Started to Kafka Streams :
+In this section, I will give you all an introduction to Kafka streams
+and the different terminologies that are involved in building a Kafka Streams Application :
+1. Introduction to Kafka Streams
+2. Kafka Streams Terminologies - Topology & Processor
+3. Introduction to KStreams API
+
+- Section 2 -> Greetings Kafka Streams App using KStreams API :
+In this section, we will build a simple Kafka Streams App and test it in our local :
+1. Learn to build a Topology of the Greetings App
+2, Build the Kafka Streams Launcher Application using which we can start and stop the application
+
+- Section 3 -> Operators in Kafka Streams using KStreams API :
+In this section, we will explore some of the operators used by the Kafka Streams API :
+1. Filter/FilterNot
+2. Map/MapValues
+3. FlatMapValues/FlatMap
+4. peek
+5. merge
+
+- Section 4 -> Serialization and Deserialization in Kafka Streams :
+In this section, we will code and explore the serialization and deserialization in Kafka Streams :
+1. How Key/Value serialization and deserialization works in Kafka Streams ?
+2. Providing Default Serializer/Deserializer using Application Configuration
+3. Build a Custom Serdes for Enhanced Greeting Messages
+
+- Section 5 -> Reusable Generic Serializer/Deserializer (Recommended Approach) :
+In this section, I will show you the best approach to build a Generic Serializer and Deserializer that can be used
+for any type of Message :
+1. Build a Generic Serializer/Deserializer
+
+- Section 6 -> Order Management Kafka Streams application - A real time use case :
+In this section, we will build a kafka streams application by implementing an Order Management system for a retail company.
+
+- Section 7 -> Topology, Stream and Tasks - Under the Hood :
+In this section, we will explore the internals of the Kafka Streams Application :
+1. Internals of Topology, Stream and Tasks
+
+- Section 8 -> Error/Exception Handling in Kafka Streams :
+In this section, we will explore different error handlers in Kafka Streams :
+1. Failures in Kafka Streams
+2. Default Deserialization Error Behavior
+3. Custom Deserialization Error Handler
+4. Default & Custom Processor Error Handler
+5. Custom Production Error Handler
+
+- Section 9 -> KTable & Global KTable :
+In this section, we will explore the KTable and GlobalKTable in Kafka Streams :
+1. Introduction to KTable API
+2. Build a topology for KTable
+3. KTable - Under the Hood
+4. GlobalKTable
+
+- Section 10 -> StateFul Operations in Kafka Streams - Aggregate, Join and Windowing Events :
+In this section, I will give an introduction to stateful operators in Kafka Streams
+and explore the aggregation related operators in Kafka streams :
+1. StateFul Operations in Kafka Streams
+2. How aggregation works and Aggregation using "count" operator
+3. Group Records by using "groupBy" operator
+4. Aggregation using "reduce" operartor
+5. Aggregation using "aggregate" operator
+6. Using Materialized views for count & reduce operator
+
+- Section 11 -> StateFul Operation Results - How to access them :
+In this section, I will explain about the options to retrieve the results of the aggregation.
+
+- Section 12 -> Re-Keying Kafka Records for Stateful operations :
+In this section, we will code and explore the effect of null operator
+and the need to rekeying records during stateful operations.
+
+- Section 13 -> StateFul Operations in Kafka Streams - Join :
+In this section, we will code and explore the different types of Joins in Kafka Streams Application.
+
+- Section 14 -> Join in Order Management Application - A Real Time Use Case :
+In this section, we will implement join in the order management application that we have been working on so far :
+1. Introduction to Joins & Types of Joins in Kafka Streams
+2. Explore innerJoin using "join" operator - Joining KStream and KTable
+3. Explore innerJoin using "join" operator - Joining KStream and GlobalKTable
+4. Explore innerJoin using "join" operator - Joining KTable and KTable
+5. Explore innerJoin using "join" operator - Joining KStream and KStream
+6. Joining Kafka Streams using "leftJoin" operator
+7. Joining Kafka Streams using "outerJoin" operator
+8. Join - Under the hood
+9. CoPartitioning Requirements in Joins & Joins Under the Hood
+
+- Section 15 -> StateFul Operations in Kafka Streams - Windowing :
+In this section, we will explore the windowing concepts in Kafka Streams :
+1. Introduction to Windowing and time concepts
+2. Windowing in Kafka Streams - "Tumbling" Windows
+3. Control emission of windowed results using "supress" operartor
+4. Windowing in Kafka Streams - "Hopping" Windows
+5. Windowing in Kafka Streams - "Sliding" Windows
+
+- Section 16 -> Windowing in Order Management Application - A Real Time Use Case :
+In this section, we will code and explore the new requirement to implement the windowing in the Orders Stream Application.
+
+- Section 17 -> Behavior of Records with Future & Older Timestamp in Windowing :
+In this section, we will explore the behavior of records with the older and future timestamp in a Kafka Streams Application :
+1. Build Kafka Streams Application using SpringBoot
+2. In this section, we will build a simple kafka streams app using SpringBoot
+3. Introduction to SpringBoot and Kafka Streams
+4. Setup the Project - Greeting Streams app using Spring Kafka Streams
+5. Configuring the Kafka Stream using application.yml
+6. Build the Greeting Topology
+7. Test Greeting App in Local
+
+- Section 18 -> SpringBoot AutoConfiguration of Kafka Streams :
+In this section, I will show you how spring boot auto configures Kafka Streams Application.
+
+- Section 19 -> JSON Serialization/Deserialization in Spring Kafka Streams :
+In this section, we will implement the JSON Serialization/Deserialization in Kafka Streams using SpringBoot.
+
+- Section 20 -> Error Handling in Spring Kafka Streams :
+In this section, I will show you error handling in Kafka Streams using SpringBoot :
+1. Handle DeSerialization Error - Approach 1
+2. Handle DeSerialization Error using Custom Error Handler - Approach 2
+3. Handle Deserialization Error - Approach 3 (Spring Specific Approach)
+4. Handle UncaughtExceptions in the Topology
+5. Handle Production Errors
+
+- Section 21 -> Build Orders Kafka Streams Application using SpringBoot :
+In this section, we will set up the Spring Boot Project for orders streams.
+
+- Section 22 -> Interactive Queries - Querying State Stores using RESTFUL APIs :
+1. Build a GET Endpoint to retrieve the OrderCount by OrderType - Part 1
+2. Build a GET Endpoint to retrieve the OrderCount by OrderType - Part 2
+3. Retrieve OrderCount by OrderType & LocationId
+4. Build a GET Endpoint to retrieve the OrderCount for All OrderTypes
+5. Build a GET Endpoint to retrieve the Revenue by OrderType
+6. Global Error Handling for useful Client Error Messages
+
+- Section 23 -> Interactive Queries - Querying Window State Stores using RESTFUL APIs :
+1. Build a GET Endpoint to Retrieve OrderCount by OrderType
+2. Build a GET Endpoint to Retrieve the windowed OrderCount for All OrderTypes
+3. Build a GET endpoint to retrieve the windowed OrderCount within a Time Range
+4. Build a GET Endpoint to retrieve the Revenue by OrderType
+
+- Section 24 -> Testing Kafka Streams Using TopologyTestDriver & JUnit5 :
+In this section, we will code and learn about how to write automated tests for Kafka Streams app :
+1. Testing Kafka Streams using TopologyTestDriver
+2. Unit Testing Greetings App - Writing Data to an Output Topic
+3. Unit Testing Greetings App - Testing Multiple Messages
+4. Unit Testing Greetings App - Error Scenario
+5. Unit Testing OrdersCount - Writing Data to a State Store
+6. Unit Testing OrdersRevenue - Writing Data to a State Store
+7. Unit Testing OrdersRevenue By Windows - Writing Data to a State Store
+8. Limitations of TopologyTestDriver
+
+- Section 25 -> Testing Kafka Streams in SpringBoot Using TopologyTestDriver & JUnit5 :
+In this section, we will code and learn how to write unit tests in our Kafka Streams application
+that's build using SpringBoot.
+
+- Section 26 -> Integration Testing Spring KafkaStreams App using @EmbeddedKafka :
+In this section, we will code and learn about writing integration tests for the Kafka Streams app using EmbeddedKafka :
+1. Introduction & SetUp Integration Test
+2. Integration Test for OrdersCount
+3. Integration Test for OrdersRevenue
+4. Integration Test for OrdersRevenue By Windows
+
+- Section 27 -> Grace Period in Kafka Streams :
+In this section I will explain the concept of grace period and how it can be used in kafka streams application.
+
+- Section 28 -> Build and Package the SpringBoot App as an Executable :
+In this section, we will package the kafka streams app as an executable and launch the app.
+
+---- By the end of this course you will have a complete understanding of Kafka Streams API
+and the different kinds of applications that can be built using Kafka Streams API.
+
+
+-----------
+-----------
+
+Docker/Kafka Commands -
+
+-----------
+-----------
+
+docker-compose up
+docker ps
+docker exec -it broker bash
+
+kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic greetings-consumer
+kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic greetings-producer
+kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic greetings-consumer-2
+
+kafka-topics --bootstrap-server localhost:9092 --list
+
+kafka-topics --bootstrap-server localhost:9092 --delete --topic greetings-consumer
+kafka-topics --bootstrap-server localhost:9092 --delete --topic greetings-producer
+kafka-topics --bootstrap-server localhost:9092 --delete --topic greetings-consumer-2

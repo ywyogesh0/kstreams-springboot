@@ -70,7 +70,7 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic greetings_upper
 - Command to consume with Key
 
 ```
-kafka-console-consumer --bootstrap-server localhost:9092 --topic greetings_uppercase --from-beginning -property "key.separator= - " --property "print.key=true"
+kafka-console-consumer --bootstrap-server localhost:9092 --topic greetings_uppercase --from-beginning --property "key.separator=-" --property "print.key=true"
 ```
 
 - Other Helpful Kafka Consumer commands
