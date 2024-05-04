@@ -15,7 +15,7 @@ import static com.learnkafkastreams.producer.ProducerUtil.publishMessageSync;
 @Slf4j
 public class GreetingMockDataProducer {
 
-    static String GREETINGS = "greetings";
+    static String GREETINGS = "greetings-consumer";
 
     public static void main(String[] args) {
         ObjectMapper objectMapper = new ObjectMapper()
@@ -27,25 +27,25 @@ public class GreetingMockDataProducer {
 
     }
 
-    private static void spanishGreetings(ObjectMapper objectMapper) {
-        var spanishGreetings = List.of(
+    private static void englishGreetings(ObjectMapper objectMapper) {
+        var englishGreetings = List.of(
                 new Greeting("Hello, Good Morning!", LocalDateTime.now()),
                 new Greeting("Hello, Good Evening!", LocalDateTime.now()),
                 new Greeting("Hello, Good Night!", LocalDateTime.now())
         );
-        spanishGreetings
+        englishGreetings
                 .forEach(greeting -> {
                     try {
                         var greetingJSON = objectMapper.writeValueAsString(greeting);
                         var recordMetaData = publishMessageSync(GREETINGS, null, greetingJSON);
-                        log.info("Published the alphabet message : {} ", recordMetaData);
+                        log.info("Published the English alphabet message : {} ", recordMetaData);
                     } catch (JsonProcessingException e) {
                         throw new RuntimeException(e);
                     }
                 });
     }
 
-    private static void englishGreetings(ObjectMapper objectMapper) {
+    private static void spanishGreetings(ObjectMapper objectMapper) {
         var spanishGreetings = List.of(
                 new Greeting("¡Hola buenos dias!", LocalDateTime.now()),
                 new Greeting("¡Hola buenas tardes!", LocalDateTime.now()),
@@ -56,12 +56,11 @@ public class GreetingMockDataProducer {
                     try {
                         var greetingJSON = objectMapper.writeValueAsString(greeting);
                         var recordMetaData = publishMessageSync(GREETINGS, null, greetingJSON);
-                        log.info("Published the alphabet message : {} ", recordMetaData);
+                        log.info("Published the Spanish alphabet message : {} ", recordMetaData);
                     } catch (JsonProcessingException e) {
                         throw new RuntimeException(e);
                     }
                 });
     }
-
 }
 

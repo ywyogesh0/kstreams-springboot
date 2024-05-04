@@ -24,6 +24,10 @@ public class GreetingsStreamApp {
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVER);
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, AUTO_OFFSET_RESET);
 
+        // Default Key/Value Serde using Application configuration
+        /*properties.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.StringSerde.class);
+        properties.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.StringSerde.class);*/
+
         // Create Topics
         /*createTopics(properties, List.of(
                 TOPIC_GREETINGS_CONSUMER,

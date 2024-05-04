@@ -1,16 +1,16 @@
 package com.learnkafkastreams.topology;
 
+import com.learnkafkastreams.domain.Greeting;
+import com.learnkafkastreams.serdes.SerdesFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.Consumed;
+import org.apache.kafka.streams.kstream.KStream;
 import org.apache.kafka.streams.kstream.Printed;
 import org.apache.kafka.streams.kstream.Produced;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.learnkafkastreams.utils.Constant.*;
 
@@ -22,67 +22,69 @@ public class GreetingsTopology {
         StreamsBuilder streamsBuilder = new StreamsBuilder();
 
         // KStream - Source Processor
-        var greetingsSourceKStream = streamsBuilder.stream(
+        KStream<String, Greeting> greetingsSourceKStream = streamsBuilder.stream(
                 TOPIC_GREETINGS_CONSUMER,
-                Consumed.with(Serdes.String(), Serdes.String())
+                //Consumed.with(Serdes.String(), Serdes.String())
+                Consumed.with(Serdes.String(), SerdesFactory.greetingSerde())
         );
 
         // KStream 2 - Source Processor
-        var greetingsSourceKStream2 = streamsBuilder.stream(
+        KStream<String, Greeting> greetingsSourceKStream2 = streamsBuilder.stream(
                 TOPIC_GREETINGS_CONSUMER_2,
-                Consumed.with(Serdes.String(), Serdes.String())
+                Consumed.with(Serdes.String(), SerdesFactory.greetingSerde())
         );
 
         // Print - KStream Source Processor
         greetingsSourceKStream.print(
-                Printed.<String, String>toSysOut().withLabel(GREETINGS_SOURCE_STREAM_LABEL)
+                Printed.<String, Greeting>toSysOut().withLabel(GREETINGS_SOURCE_STREAM_LABEL)
         );
 
         // Print - KStream 2 - Source Processor
         greetingsSourceKStream2.print(
-                Printed.<String, String>toSysOut().withLabel(GREETINGS_SOURCE_STREAM_LABEL_2)
+                Printed.<String, Greeting>toSysOut().withLabel(GREETINGS_SOURCE_STREAM_LABEL_2)
         );
 
         // Operator - merge
         var mergedGreetingsKStream = greetingsSourceKStream.merge(greetingsSourceKStream2);
 
         // Operator - peek
-        mergedGreetingsKStream.peek((key, value) ->
-                log.info("After Merging, Key {} Length {} & Value {} Length {}",
-                        key,
-                        key.length(),
-                        value,
-                        value.length())
+        mergedGreetingsKStream.peek(
+                (key, value) -> log.info("After Merging, Key {} & Value {}", key, value)
         );
 
         // Print - Merged Stream
         mergedGreetingsKStream.print(
-                Printed.<String, String>toSysOut().withLabel(GREETINGS_MERGED_STREAM_LABEL)
+                Printed.<String, Greeting>toSysOut().withLabel(GREETINGS_MERGED_STREAM_LABEL)
         );
 
         // KStream - Stream Processor
         var greetingsTransformedKStream = mergedGreetingsKStream
                 // Operator - filter
-                .filter((key, value) -> value.length() > 5)
+                .filter((key, value) -> value.getMessage().length() > 5)
                 // Operator - filterNot
-                .filterNot((key, value) -> value.equalsIgnoreCase("Saturday"))
+                .filterNot((key, value) -> value.getMessage().equalsIgnoreCase("Saturday"))
                 // Operator - map
                 .map((key, value) -> KeyValue.pair(
-                        key != null ? key.toUpperCase() : null, value.concat("2024")
-                ))
-                // Operator - mapValues
-                .mapValues((readOnlyKey, value) -> value.toUpperCase())
-                // Operator - flatMap
-                .flatMap((key, value) -> {
+                        key != null ? key.toUpperCase() : null,
+                        Greeting
+                                .builder()
+                                .message(value.getMessage().concat("2024"))
+                                .timeStamp(value.getTimeStamp())
+                                .build()
+                ));
+        // Operator - mapValues
+        //.mapValues((readOnlyKey, value) -> value.toUpperCase())
+        // Operator - flatMap
+                /*.flatMap((key, value) -> {
                     String[] values = value.split(" ");
                     List<KeyValue<String, String>> keyValueList = new ArrayList<>();
                     for (String splitValue : values) {
                         keyValueList.add(KeyValue.pair(key, splitValue.toLowerCase()));
                     }
                     return keyValueList;
-                })
-                // Operator - flatMapValues
-                .flatMapValues(
+                })*/
+        // Operator - flatMapValues
+               /* .flatMapValues(
                         (readOnlyKey, value) -> {
                             String[] values = value.split("");
                             List<String> valueList = new ArrayList<>();
@@ -91,17 +93,17 @@ public class GreetingsTopology {
                             }
                             return valueList;
                         }
-                );
+                );*/
 
         // Print - KStream Stream Processor
         greetingsTransformedKStream.print(
-                Printed.<String, String>toSysOut().withLabel(GREETINGS_TRANSFORMED_STREAM_LABEL)
+                Printed.<String, Greeting>toSysOut().withLabel(GREETINGS_TRANSFORMED_STREAM_LABEL)
         );
 
         // KStream - Sink Processor
         greetingsTransformedKStream.to(
                 TOPIC_GREETINGS_PRODUCER,
-                Produced.with(Serdes.String(), Serdes.String())
+                Produced.with(Serdes.String(), SerdesFactory.greetingSerde())
         );
 
         return streamsBuilder.build();
