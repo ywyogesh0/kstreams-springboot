@@ -25,13 +25,13 @@ public class GreetingsTopology {
         KStream<String, Greeting> greetingsSourceKStream = streamsBuilder.stream(
                 TOPIC_GREETINGS_CONSUMER,
                 //Consumed.with(Serdes.String(), Serdes.String())
-                Consumed.with(Serdes.String(), SerdesFactory.greetingSerde())
+                Consumed.with(Serdes.String(), SerdesFactory.greetingGenericSerde())
         );
 
         // KStream 2 - Source Processor
         KStream<String, Greeting> greetingsSourceKStream2 = streamsBuilder.stream(
                 TOPIC_GREETINGS_CONSUMER_2,
-                Consumed.with(Serdes.String(), SerdesFactory.greetingSerde())
+                Consumed.with(Serdes.String(), SerdesFactory.greetingGenericSerdeFromSerdes())
         );
 
         // Print - KStream Source Processor
