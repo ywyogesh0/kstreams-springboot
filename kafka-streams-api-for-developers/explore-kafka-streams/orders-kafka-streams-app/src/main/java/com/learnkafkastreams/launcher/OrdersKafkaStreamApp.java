@@ -1,7 +1,5 @@
-package com.learnkafkastreams;
+package com.learnkafkastreams.launcher;
 
-
-import static com.learnkafkastreams.util.Constants.*;
 
 import com.learnkafkastreams.topology.OrdersTopology;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +13,8 @@ import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
+import static com.learnkafkastreams.util.Constants.*;
+
 @Slf4j
 public class OrdersKafkaStreamApp {
 
@@ -26,6 +26,7 @@ public class OrdersKafkaStreamApp {
         config.put(StreamsConfig.APPLICATION_ID_CONFIG, "orders-app"); // consumer group
         config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest"); // read only the new messages
+        config.put(StreamsConfig.NUM_STREAM_THREADS_CONFIG, "2");
 
         //createTopics(config, List.of(ORDERS_TOPIC, GENERAL_ORDERS_TOPIC, RESTAURANT_ORDERS_TOPIC));
 
@@ -45,7 +46,7 @@ public class OrdersKafkaStreamApp {
     private static void createTopics(Properties config, List<String> topics) {
 
         AdminClient admin = AdminClient.create(config);
-        var partitions = 1;
+        var partitions = 2;
         short replication = 1;
 
         var newTopics = topics
