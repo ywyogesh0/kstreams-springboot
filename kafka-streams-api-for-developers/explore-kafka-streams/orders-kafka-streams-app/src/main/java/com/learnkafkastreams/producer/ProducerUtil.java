@@ -33,7 +33,7 @@ public class ProducerUtil {
         RecordMetadata recordMetadata=null;
 
         try {
-            log.info("producerRecord : " + producerRecord);
+            log.info("producerRecord : {}", producerRecord);
             recordMetadata = producer.send(producerRecord).get();
         } catch (InterruptedException e) {
             log.error("InterruptedException in  publishMessageSync : {}  ", e.getMessage(), e);

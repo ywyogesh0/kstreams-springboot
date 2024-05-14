@@ -7,7 +7,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.learnkafkastreams.domain.OrderLineItem;
 import com.learnkafkastreams.domain.Order;
 import com.learnkafkastreams.domain.OrderType;
-import com.learnkafkastreams.topology.OrdersTopology;
+import com.learnkafkastreams.util.Constants;
 import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
@@ -90,7 +90,6 @@ public class OrdersMockDataProducer {
         //[general_orders_revenue_window]: TotalRevenue[locationId=store_1234, runnuingOrderCount=1, runningRevenue=27.00]
         //[general_orders_revenue_window]:  TotalRevenue[locationId=store_4567, runnuingOrderCount=1, runningRevenue=27.00]
         //[general_orders_revenue_window]:  TotalRevenue[locationId=store_4567, runnuingOrderCount=1, runningRevenue=27.00]
-
 
 
         var generalOrdersWithCustomTime = orders
@@ -248,7 +247,7 @@ public class OrdersMockDataProducer {
                 .forEach(order -> {
                     try {
                         var ordersJSON = objectMapper.writeValueAsString(order);
-                        var recordMetaData = publishMessageSync(OrdersTopology.ORDERS, order.orderId() + "", ordersJSON);
+                        var recordMetaData = publishMessageSync(Constants.ORDERS_TOPIC, order.orderId() + "", ordersJSON);
                         log.info("Published the order message : {} ", recordMetaData);
                     } catch (JsonProcessingException e) {
                         log.error("JsonProcessingException : {} ", e.getMessage(), e);
@@ -259,6 +258,4 @@ public class OrdersMockDataProducer {
                     }
                 });
     }
-
-
 }

@@ -11,18 +11,13 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static com.learnkafkastreams.topology.OrdersTopology.ORDERS;
-
 class OrdersTopologyTest {
 
     TopologyTestDriver topologyTestDriver = null;
     TestInputTopic<String, Order> ordersInputTopic = null;
 
-    static String INPUT_TOPIC = ORDERS;
 
-
-
-    static List<KeyValue<String, Order>> orders(){
+    static List<KeyValue<String, Order>> orders() {
 
         var orderItems = List.of(
                 new OrderLineItem("Bananas", 2, new BigDecimal("2.00")),
@@ -49,14 +44,14 @@ class OrdersTopologyTest {
                 LocalDateTime.now()
                 //LocalDateTime.now(ZoneId.of("UTC"))
         );
-        var keyValue1 = KeyValue.pair( order1.orderId().toString()
+        var keyValue1 = KeyValue.pair(order1.orderId().toString()
                 , order1);
 
-        var keyValue2 = KeyValue.pair( order2.orderId().toString()
+        var keyValue2 = KeyValue.pair(order2.orderId().toString()
                 , order2);
 
 
-        return  List.of(keyValue1, keyValue2);
+        return List.of(keyValue1, keyValue2);
 
     }
 }
