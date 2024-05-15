@@ -58,20 +58,11 @@ public class GreetingsTopology {
         );
 
         // KStream - Stream Processor
-        var greetingsTransformedKStream = mergedGreetingsKStream
-                // Operator - filter
-                .filter((key, value) -> value.getMessage().length() > 5)
-                // Operator - filterNot
-                .filterNot((key, value) -> value.getMessage().equalsIgnoreCase("Saturday"))
-                // Operator - map
-                .map((key, value) -> KeyValue.pair(
-                        key != null ? key.toUpperCase() : null,
-                        Greeting
-                                .builder()
-                                .message(value.getMessage().concat("2024"))
-                                .timeStamp(value.getTimeStamp())
-                                .build()
-                ));
+        //var greetingsTransformedKStream = getStringGreetingKStream(mergedGreetingsKStream);
+
+        // KStream - Stream Processor - exception handler
+        var greetingsTransformedKStream = callGreetingKStreamForErrors(mergedGreetingsKStream);
+
         // Operator - mapValues
         //.mapValues((readOnlyKey, value) -> value.toUpperCase())
         // Operator - flatMap
@@ -107,5 +98,36 @@ public class GreetingsTopology {
         );
 
         return streamsBuilder.build();
+    }
+
+    private static KStream<String, Greeting> getStringGreetingKStream(KStream<String, Greeting> mergedGreetingsKStream) {
+        return mergedGreetingsKStream
+                // Operator - filter
+                .filter((key, value) -> value.getMessage().length() > 5)
+                // Operator - filterNot
+                .filterNot((key, value) -> value.getMessage().equalsIgnoreCase("Saturday"))
+                // Operator - map
+                .map((key, value) -> KeyValue.pair(
+                        key != null ? key.toUpperCase() : null,
+                        Greeting
+                                .builder()
+                                .message(value.getMessage().concat("2024"))
+                                .timeStamp(value.getTimeStamp())
+                                .build()
+                ));
+    }
+
+    private static KStream<String, Greeting> callGreetingKStreamForErrors(KStream<String, Greeting> mergedGreetingsKStream) {
+        return mergedGreetingsKStream
+                .mapValues((readOnlyKey, value) -> {
+                    if ("transient error".equalsIgnoreCase(value.getMessage())) {
+                        throw new IllegalStateException("transient error");
+                    }
+                    return Greeting
+                            .builder()
+                            .message(value.getMessage().concat("2024"))
+                            .timeStamp(value.getTimeStamp())
+                            .build();
+                });
     }
 }

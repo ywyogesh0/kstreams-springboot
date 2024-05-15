@@ -1,10 +1,14 @@
 package com.learnkafkastreams.launcher;
 
+import com.learnkafkastreams.exceptionhandler.CustomDeserializerExceptionHandler;
+import com.learnkafkastreams.exceptionhandler.CustomProcessorExceptionHandler;
+import com.learnkafkastreams.exceptionhandler.CustomProductionExceptionHandler;
 import com.learnkafkastreams.topology.GreetingsTopology;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsConfig;
 
@@ -25,8 +29,23 @@ public class GreetingsStreamApp {
         properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, AUTO_OFFSET_RESET);
 
         // Default Key/Value Serde using Application configuration
-        /*properties.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.StringSerde.class);
-        properties.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.StringSerde.class);*/
+        properties.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.StringSerde.class);
+        properties.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.StringSerde.class);
+
+        // num.stream.threads - consumer threads
+        properties.put(StreamsConfig.NUM_STREAM_THREADS_CONFIG, "1");
+
+        // Default Deserializer Exception Handler - default.deserialization.exception.handler
+        properties.put(
+                StreamsConfig.DEFAULT_DESERIALIZATION_EXCEPTION_HANDLER_CLASS_CONFIG,
+                CustomDeserializerExceptionHandler.class
+        );
+
+        // Default Production (Serializer) Exception Handler - default.production.exception.handler
+        properties.put(
+                StreamsConfig.DEFAULT_PRODUCTION_EXCEPTION_HANDLER_CLASS_CONFIG,
+                CustomProductionExceptionHandler.class
+        );
 
         // Create Topics
         /*createTopics(properties, List.of(
@@ -43,9 +62,10 @@ public class GreetingsStreamApp {
                     properties
             );
 
-            Runtime.getRuntime().addShutdownHook(
-                    new Thread(kafkaStreams::close)
-            );
+            // Set custom stream processor uncaught exception handler
+            kafkaStreams.setUncaughtExceptionHandler(new CustomProcessorExceptionHandler());
+
+            Runtime.getRuntime().addShutdownHook(new Thread(kafkaStreams::close));
 
             kafkaStreams.start();
         } catch (Exception e) {
@@ -56,7 +76,7 @@ public class GreetingsStreamApp {
     private static void createTopics(Properties config, List<String> greetings) {
 
         AdminClient admin = AdminClient.create(config);
-        var partitions = 1;
+        var partitions = 2;
         short replication = 1;
 
         var newTopics = greetings

@@ -220,12 +220,26 @@ docker-compose up
 docker ps
 docker exec -it broker bash
 
-kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic greetings-consumer
-kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic greetings-producer
-kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic greetings-consumer-2
-
 kafka-topics --bootstrap-server localhost:9092 --list
 
+// greetings
+
+kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic greetings-consumer
+kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic greetings-consumer-2
+
+kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic greetings-producer --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer"
+
 kafka-topics --bootstrap-server localhost:9092 --delete --topic greetings-consumer
-kafka-topics --bootstrap-server localhost:9092 --delete --topic greetings-producer
 kafka-topics --bootstrap-server localhost:9092 --delete --topic greetings-consumer-2
+kafka-topics --bootstrap-server localhost:9092 --delete --topic greetings-producer
+
+// order management
+
+kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic orders
+
+kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic general-orders --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer"
+kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic restaurant-orders --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer"
+
+kafka-topics --bootstrap-server localhost:9092 --delete --topic orders
+kafka-topics --bootstrap-server localhost:9092 --delete --topic general-orders
+kafka-topics --bootstrap-server localhost:9092 --delete --topic restaurant-orders

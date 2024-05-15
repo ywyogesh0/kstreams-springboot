@@ -23,15 +23,16 @@ public class GreetingMockDataProducer {
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
         englishGreetings(objectMapper);
-        spanishGreetings(objectMapper);
+        //spanishGreetings(objectMapper);
 
     }
 
     private static void englishGreetings(ObjectMapper objectMapper) {
         var englishGreetings = List.of(
                 new Greeting("Hello, Good Morning!", LocalDateTime.now()),
-                new Greeting("Hello, Good Evening!", LocalDateTime.now()),
-                new Greeting("Hello, Good Night!", LocalDateTime.now())
+                new Greeting("transient error", LocalDateTime.now())
+                //new Greeting("Hello, Good Evening!", LocalDateTime.now()),
+                //new Greeting("Hello, Good Night!", LocalDateTime.now())
         );
         englishGreetings
                 .forEach(greeting -> {
