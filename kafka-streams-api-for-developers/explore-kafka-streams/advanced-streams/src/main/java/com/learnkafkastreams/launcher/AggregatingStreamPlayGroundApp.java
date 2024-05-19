@@ -1,6 +1,7 @@
 package com.learnkafkastreams.launcher;
 
 import com.learnkafkastreams.topology.ExploreAggregateOperatorsTopology;
+import com.learnkafkastreams.utils.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -13,7 +14,6 @@ import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
-import static com.learnkafkastreams.topology.ExploreAggregateOperatorsTopology.AGGREGATE;
 import static org.apache.kafka.streams.StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG;
 
 @Slf4j
@@ -22,21 +22,22 @@ public class AggregatingStreamPlayGroundApp {
 
     public static void main(String[] args) {
 
-      var kTableTopology = ExploreAggregateOperatorsTopology.build();
+        var kTableTopology = ExploreAggregateOperatorsTopology.build();
 
         Properties config = new Properties();
-        config.put(StreamsConfig.APPLICATION_ID_CONFIG, "stateful-operation"); // consumer group
+        config.put(StreamsConfig.APPLICATION_ID_CONFIG, "aggregate-operation"); // consumer group
         config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest");
-        config.put(DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
+        //config.put(DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
 
+        // create topics
+        //createTopics(config, List.of(Constants.TOPIC_AGGREGATE));
 
-        createTopics(config, List.of(AGGREGATE));
-         var kafkaStreams = new KafkaStreams(kTableTopology, config);
+        var kafkaStreams = new KafkaStreams(kTableTopology, config);
 
-       // Runtime.getRuntime().addShutdownHook(new Thread(kafkaStreams::close));
+        Runtime.getRuntime().addShutdownHook(new Thread(kafkaStreams::close));
 
-        log.info("Starting Greeting streams");
+        log.info("Starting Aggregate Streams...");
         kafkaStreams.start();
     }
 
@@ -44,11 +45,11 @@ public class AggregatingStreamPlayGroundApp {
 
         AdminClient admin = AdminClient.create(config);
         var partitions = 1;
-        short replication  = 1;
+        short replication = 1;
 
         var newTopics = greetings
                 .stream()
-                .map(topic ->{
+                .map(topic -> {
                     return new NewTopic(topic, partitions, replication);
                 })
                 .collect(Collectors.toList());
@@ -59,7 +60,7 @@ public class AggregatingStreamPlayGroundApp {
                     .all().get();
             log.info("topics are created successfully");
         } catch (Exception e) {
-            log.error("Exception creating topics : {} ",e.getMessage(), e);
+            log.error("Exception creating topics : {} ", e.getMessage(), e);
         }
     }
 }

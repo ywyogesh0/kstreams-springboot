@@ -16,24 +16,15 @@ public record AlphabetWordAggregate(String key,
     }
 
 
-    public AlphabetWordAggregate updateNewEvents(String key, String neVwalue){
+    public AlphabetWordAggregate updateNewEvents(String key, String newValue){
         log.info("Before the update : {} ", this );
-        log.info("New Record : key : {} , value : {} : ", key, neVwalue );
+        log.info("New Record : key : {} , value : {} : ", key, newValue );
         var newRunningCount = this.runningCount +1;
-        valueList.add(neVwalue);
+        valueList.add(newValue);
         var aggregated = new AlphabetWordAggregate(key, valueList, newRunningCount);
         log.info("aggregated : {}" , aggregated);
         return aggregated;
     }
-
-
-    public static void main(String[] args) {
-
-
-        var al =new AlphabetWordAggregate();
-
-    }
-
 }
 
 

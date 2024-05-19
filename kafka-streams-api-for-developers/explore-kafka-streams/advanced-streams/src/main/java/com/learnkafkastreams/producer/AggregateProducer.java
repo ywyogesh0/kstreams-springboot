@@ -1,9 +1,9 @@
 package com.learnkafkastreams.producer;
 
+import static com.learnkafkastreams.utils.Constants.TOPIC_AGGREGATE;
 import lombok.extern.slf4j.Slf4j;
 
 import static com.learnkafkastreams.producer.ProducerUtil.publishMessageSync;
-import static com.learnkafkastreams.topology.ExploreAggregateOperatorsTopology.AGGREGATE;
 
 @Slf4j
 public class AggregateProducer {
@@ -18,13 +18,13 @@ public class AggregateProducer {
         var word1 = "Alligator";
         var word2 = "Ambulance";
 
-        var recordMetaData = publishMessageSync(AGGREGATE, key,word);
+        var recordMetaData = publishMessageSync(TOPIC_AGGREGATE, key,word);
         log.info("Published the alphabet message : {} ", recordMetaData);
 
-        var recordMetaData1 = publishMessageSync(AGGREGATE, key,word1);
+        var recordMetaData1 = publishMessageSync(TOPIC_AGGREGATE, key,word1);
         log.info("Published the alphabet message : {} ", recordMetaData1);
 
-        var recordMetaData2 = publishMessageSync(AGGREGATE, key,word2);
+        var recordMetaData2 = publishMessageSync(TOPIC_AGGREGATE, key,word2);
         log.info("Published the alphabet message : {} ", recordMetaData2);
 
         var bKey = "B";
@@ -32,14 +32,11 @@ public class AggregateProducer {
 
         var bWord1 = "Bus";
         var bWord2 = "Baby";
-        var recordMetaData3 = publishMessageSync(AGGREGATE, bKey,bWord1);
+        var recordMetaData3 = publishMessageSync(TOPIC_AGGREGATE, bKey,bWord1);
         log.info("Published the alphabet message : {} ", recordMetaData2);
 
-        var recordMetaData4 = publishMessageSync(AGGREGATE, bKey,bWord2);
+        var recordMetaData4 = publishMessageSync(TOPIC_AGGREGATE, bKey,bWord2);
         log.info("Published the alphabet message : {} ", recordMetaData2);
 
     }
-
-
-
 }
