@@ -29,6 +29,7 @@ public class OrdersKafkaStreamApp {
         config.put(StreamsConfig.NUM_STREAM_THREADS_CONFIG, "2");
 
         //createTopics(config, List.of(ORDERS_TOPIC, GENERAL_ORDERS_TOPIC, RESTAURANT_ORDERS_TOPIC));
+        //createTopics(config, List.of(ORDERS_TOPIC));
 
         //Create an instance of KafkaStreams
         var kafkaStreams = new KafkaStreams(OrdersTopology.buildTopology(), config);

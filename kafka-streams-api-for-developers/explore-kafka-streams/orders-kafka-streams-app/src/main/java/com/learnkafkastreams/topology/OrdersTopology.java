@@ -7,9 +7,12 @@ import com.learnkafkastreams.serdes.SerdeFactory;
 import com.learnkafkastreams.util.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.common.utils.Bytes;
+import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.*;
+import org.apache.kafka.streams.state.KeyValueStore;
 
 @Slf4j
 public class OrdersTopology {
@@ -41,27 +44,29 @@ public class OrdersTopology {
         );
 
         // split orders stream into - general & restaurant stream branches
-        ordersStream.split(Named.as("split-orders-stream"))
+        ordersStream.split(Named.as("split-orders-stream-processor"))
                 .branch(
                         generalPredicate,
                         Branched.withConsumer(generalOrderKStream -> {
-                            KStream<String, Revenue> revenueGeneralKStream = generalOrderKStream
+                            /*KStream<String, Revenue> revenueGeneralKStream = generalOrderKStream
                                     .mapValues(
                                             (readOnlyOrderKey, orderValue) -> revenueValueMapper.apply(orderValue)
                                     );
                             revenueGeneralKStream.print(
                                     Printed.<String, Revenue>toSysOut().withLabel("general-branched-stream")
                             );
+
                             revenueGeneralKStream.to(
                                     Constants.GENERAL_ORDERS_TOPIC,
                                     Produced.with(Serdes.String(), SerdeFactory.generateRevenueSerde())
-                            );
+                            );*/
+                            aggregateOrdersCountByStore(generalOrderKStream, Constants.GENERAL_ORDERS_COUNT);
                         })
                 )
                 .branch(
                         restaurantPredicate,
                         Branched.withConsumer(restaurantOrderKStream -> {
-                            KStream<String, Revenue> revenueRestaurantKStream = restaurantOrderKStream
+                            /*KStream<String, Revenue> revenueRestaurantKStream = restaurantOrderKStream
                                     .mapValues(
                                             (readOnlyOrderKey, orderValue) -> revenueValueMapper.apply(orderValue)
                                     );
@@ -71,10 +76,30 @@ public class OrdersTopology {
                             revenueRestaurantKStream.to(
                                     Constants.RESTAURANT_ORDERS_TOPIC,
                                     Produced.with(Serdes.String(), SerdeFactory.generateRevenueSerde())
-                            );
+                            );*/
+                            aggregateOrdersCountByStore(restaurantOrderKStream, Constants.RESTAURANT_ORDERS_COUNT);
                         })
                 );
 
         return streamsBuilder.build();
+    }
+
+    private static void aggregateOrdersCountByStore(KStream<String, Order> orderKStream, String stateStore) {
+        orderKStream
+                .map((key, order) -> KeyValue.pair(order.locationId(), order))
+                .groupByKey(
+                        Grouped.with(Serdes.String(), SerdeFactory.generateOrderSerde())
+                )
+                .count(
+                        Named.as(stateStore),
+                        Materialized
+                                .<String, Long, KeyValueStore<Bytes, byte[]>>as(stateStore)
+                                .withKeySerde(Serdes.String())
+                                .withValueSerde(Serdes.Long())
+                )
+                .toStream()
+                .print(
+                        Printed.<String, Long>toSysOut().withLabel(stateStore)
+                );
     }
 }
