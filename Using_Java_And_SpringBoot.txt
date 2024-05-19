@@ -222,24 +222,44 @@ docker exec -it broker bash
 
 kafka-topics --bootstrap-server localhost:9092 --list
 
+kafka-topics --bootstrap-server localhost:9092 --delete --topic <topic_name>
+
 // greetings
 
 kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic greetings-consumer
 kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic greetings-consumer-2
-
 kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic greetings-producer --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer"
 
-kafka-topics --bootstrap-server localhost:9092 --delete --topic greetings-consumer
-kafka-topics --bootstrap-server localhost:9092 --delete --topic greetings-consumer-2
-kafka-topics --bootstrap-server localhost:9092 --delete --topic greetings-producer
 
 // order management
 
 kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic orders
-
 kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic general-orders --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer"
 kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic restaurant-orders --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer"
 
-kafka-topics --bootstrap-server localhost:9092 --delete --topic orders
-kafka-topics --bootstrap-server localhost:9092 --delete --topic general-orders
-kafka-topics --bootstrap-server localhost:9092 --delete --topic restaurant-orders
+
+// words
+
+kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic words-consumer
+kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic ktable-words-store-changelog --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer"
+
+// stateful - count, reduce & aggregate operators
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic aggregate-operation-explore-count-changelog
+kafka-console-consumer --bootstrap-server localhost:9092 --topic aggregate-operation-explore-count-repartition
+kafka-console-consumer --bootstrap-server localhost:9092 --topic aggregate-operation-explore-reduce-changelog
+kafka-console-consumer --bootstrap-server localhost:9092 --topic aggregate-operation-explore-aggregate-changelog
+
+// orders management app - stateful count operator
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-general-orders-count-changelog
+kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-general-orders-count-repartition
+kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-restaurant-orders-count-changelog
+kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-restaurant-orders-count-repartition
+
+// orders management app - stateful aggregate operator
+
+kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-general-orders-revenue-changelog
+kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-general-orders-revenue-repartition
+kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-restaurant-orders-revenue-changelog
+kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-restaurant-orders-revenue-repartition
