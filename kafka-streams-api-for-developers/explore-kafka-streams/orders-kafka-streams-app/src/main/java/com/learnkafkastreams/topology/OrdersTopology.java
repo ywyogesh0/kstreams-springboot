@@ -86,7 +86,7 @@ public class OrdersTopology {
 
     private static void aggregateOrdersCountByStore(KStream<String, Order> orderKStream, String stateStore) {
         orderKStream
-                .map((key, order) -> KeyValue.pair(order.locationId(), order))
+                .map((key, order) -> KeyValue.pair(order.locationId() + "-key", order))
                 .groupByKey(
                         Grouped.with(Serdes.String(), SerdeFactory.generateOrderSerde())
                 )
