@@ -23,9 +23,6 @@ public class ExploreAggregateOperatorsTopology {
                 .stream(
                         Constants.TOPIC_AGGREGATE,
                         Consumed.with(Serdes.String(), Serdes.String())
-                )
-                .peek(
-                        (key, value) -> log.info("key: {}, value: {}", key, value)
                 );
 
         // explore count operator
@@ -42,23 +39,29 @@ public class ExploreAggregateOperatorsTopology {
 
     private static void exploreCountOperator(KStream<String, String> aggregateStream) {
         KGroupedStream<String, String> kGroupedStream = aggregateStream
-/*                .groupByKey(
+                /*.groupByKey(
                         Grouped.with(Serdes.String(), Serdes.String())
                 );*/
                 .groupBy(
-                        (key, value) -> value,
+                        (key, value) -> {
+                            log.info("Before re-partition: key is {}, value is {}", key, value);
+                            return value;
+                        },
                         Grouped.with(Serdes.String(), Serdes.String())
                 );
 
         KTable<String, Long> kGroupedTable = kGroupedStream
                 .count(
                         Named.as("explore-count-processor"),
-                        Materialized.as("aggregate-explore-count")
+                        Materialized
+                                .<String, Long, KeyValueStore<Bytes, byte[]>>as("explore-count")
+                                .withKeySerde(Serdes.String())
+                                .withValueSerde(Serdes.Long())
                 );
 
         kGroupedTable
                 .toStream()
-                .print(Printed.<String, Long>toSysOut().withLabel("aggregate-explore-count"));
+                .print(Printed.<String, Long>toSysOut().withLabel("explore-count"));
     }
 
     private static void exploreReduceOperator(KStream<String, String> aggregateStream) {
@@ -74,12 +77,12 @@ public class ExploreAggregateOperatorsTopology {
                             return value1.toUpperCase() + "-" + value2.toUpperCase();
                         },
                         Named.as("explore-reduce-processor"),
-                        Materialized.as("aggregate-explore-reduce")
+                        Materialized.as("explore-reduce")
                 );
 
         kGroupedTable
                 .toStream()
-                .print(Printed.<String, String>toSysOut().withLabel("aggregate-explore-reduce"));
+                .print(Printed.<String, String>toSysOut().withLabel("explore-reduce"));
     }
 
     private static void exploreAggregateOperator(KStream<String, String> aggregateStream) {
