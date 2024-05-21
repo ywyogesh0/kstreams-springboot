@@ -4,5 +4,4 @@ public record Alphabet(
         String abbreviation,
         String description
 ) {
-
 }

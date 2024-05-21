@@ -1,26 +1,33 @@
 package com.learnkafkastreams.topology;
 
-import com.learnkafkastreams.domain.Alphabet;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
-import org.apache.kafka.streams.kstream.*;
-
-import java.time.Duration;
 
 @Slf4j
 public class ExploreJoinsOperatorsTopology {
 
-
-    public static String ALPHABETS = "alphabets"; // A => First letter in the english alphabet
-    public static String ALPHABETS_ABBREVATIONS = "alphabets_abbreviations"; // A=> Apple
-
-
-    public static Topology build(){
+    public static Topology build() {
         StreamsBuilder streamsBuilder = new StreamsBuilder();
+
+        // explore "inner" & "left outer" join between kStream-kTable
+        // KStreamKTableJoinTopology.exploreJoinKStreamKTable(streamsBuilder);
+        // KStreamKTableJoinTopology.exploreLeftJoinKStreamKTable(streamsBuilder);
+
+        // explore "inner" & "left outer" join between kStream-globalKTable
+        // KStreamGlobalKTableJoinTopology.exploreJoinKStreamGlobalKTable(streamsBuilder);
+        // KStreamGlobalKTableJoinTopology.exploreLeftJoinKStreamGlobalKTable(streamsBuilder);
+
+        // explore "inner", "left outer" & "full outer" join between kTable-kTable
+        // KTableKTableJoinTopology.exploreJoinKTableKTable(streamsBuilder);
+        // KTableKTableJoinTopology.exploreLeftJoinKTableKTable(streamsBuilder);
+        // KTableKTableJoinTopology.exploreOuterJoinKTableKTable(streamsBuilder);
+
+        // explore "inner", "left outer" & "full outer" join between kStream-kStream
+        // KStreamKStreamJoinTopology.exploreJoinKStreamKStream(streamsBuilder);
+        // KStreamKStreamJoinTopology.exploreLeftJoinKStreamKStream(streamsBuilder);
+        // KStreamKStreamJoinTopology.exploreOuterJoinKStreamKStream(streamsBuilder);
 
         return streamsBuilder.build();
     }
-
 }

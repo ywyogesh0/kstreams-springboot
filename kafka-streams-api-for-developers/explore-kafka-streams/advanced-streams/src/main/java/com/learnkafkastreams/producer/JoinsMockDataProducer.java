@@ -8,47 +8,44 @@ import java.util.Map;
 
 import static com.learnkafkastreams.producer.ProducerUtil.publishMessageSync;
 import static com.learnkafkastreams.producer.ProducerUtil.publishMessageSyncWithDelay;
-import static com.learnkafkastreams.topology.ExploreJoinsOperatorsTopology.ALPHABETS;
-import static com.learnkafkastreams.topology.ExploreJoinsOperatorsTopology.ALPHABETS_ABBREVATIONS;
 import static java.time.Instant.now;
+
+import static com.learnkafkastreams.utils.Constants.*;
 
 @Slf4j
 public class JoinsMockDataProducer {
 
-
     public static void main(String[] args) throws InterruptedException {
 
-
         var alphabetMap = Map.of(
-                "A", "A is the first letter in English Alphabets.",
-                "B", "B is the second letter in English Alphabets."
-                //              ,"E", "E is the fifth letter in English Alphabets."
-//                ,
-//                "A", "A is the First letter in English Alphabets.",
-//                "B", "B is the Second letter in English Alphabets."
+                "A", "A15 is the first letter in English Alphabets.",
+                "B", "B15 is the second letter in English Alphabets.",
+                "E", "E15 is the fifth letter in English Alphabets."
+                /*"A", "A is the First letter in English Alphabets.",
+                "B", "B is the Second letter in English Alphabets."*/
         );
-        //publishMessages(alphabetMap, ALPHABETS);
+        //publishMessages(alphabetMap, TOPIC_ALPHABETS);
 
         //JoinWindows
         //-4 & 4 will trigger the join
-        //-6 -5 & 5, 6 wont trigger the join
-        //publishMessagesWithDelay(alphabetMap, ALPHABETS, 4);
+        //-6 -5 & 5, 6 won't trigger the join
+        publishMessagesWithDelay(alphabetMap, TOPIC_ALPHABETS, 4);
 
-        var alphabetAbbrevationMap = Map.of(
-                "A", "Apple",
-                "B", "Bus"
-                , "C", "Cat"
+        //Thread.sleep(7000);
 
+        var alphabetAbbreviationMap = Map.of(
+                "A", "Apple-15",
+                "B", "Bus-15",
+                "C", "Cat-15"
         );
-        publishMessages(alphabetAbbrevationMap, ALPHABETS_ABBREVATIONS);
+        publishMessages(alphabetAbbreviationMap, TOPIC_ALPHABETS_ABBREVIATIONS);
 
-        alphabetAbbrevationMap = Map.of(
+        alphabetAbbreviationMap = Map.of(
                 "A", "Airplane",
                 "B", "Baby."
 
         );
-        // publishMessages(alphabetAbbrevationMap, ALPHABETS_ABBREVATIONS);
-
+        //publishMessages(alphabetAbbreviationMap, TOPIC_ALPHABETS_ABBREVIATIONS);
     }
 
     private static void publishMessagesToSimulateGrace(Map<String, String> alphabetMap, String topicName, int delaySeconds) throws InterruptedException {
@@ -57,7 +54,7 @@ public class JoinsMockDataProducer {
                 .forEach((key, value)
                         -> producerRecords.add(new ProducerRecord<>(topicName, 0, now().toEpochMilli(), key, value)));
 
-        Thread.sleep(delaySeconds* 1000L);
+        Thread.sleep(delaySeconds * 1000L);
         ProducerUtil.publishMessageSync(producerRecords);
     }
 
@@ -75,9 +72,7 @@ public class JoinsMockDataProducer {
         alphabetMap
                 .forEach((key, value) -> {
                     var recordMetaData = publishMessageSync(topic, key, value);
-                    log.info("Published the alphabet message : {} ", recordMetaData);
+                    log.info("Published the alphabet message  : {} ", recordMetaData);
                 });
     }
-
-
 }
