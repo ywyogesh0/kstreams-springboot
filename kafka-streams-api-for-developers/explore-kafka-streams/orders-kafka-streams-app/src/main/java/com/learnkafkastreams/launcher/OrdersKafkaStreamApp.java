@@ -26,9 +26,9 @@ public class OrdersKafkaStreamApp {
         config.put(StreamsConfig.APPLICATION_ID_CONFIG, "orders-app"); // consumer group
         config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest"); // read only the new messages
-        config.put(StreamsConfig.NUM_STREAM_THREADS_CONFIG, "2");
+        config.put(StreamsConfig.NUM_STREAM_THREADS_CONFIG, "1");
 
-        //createTopics(config, List.of(ORDERS_TOPIC, GENERAL_ORDERS_TOPIC, RESTAURANT_ORDERS_TOPIC));
+        //createTopics(config, List.of(ORDERS_TOPIC, GENERAL_ORDERS_TOPIC, RESTAURANT_ORDERS_TOPIC, STORES_TOPIC));
         //createTopics(config, List.of(ORDERS_TOPIC));
 
         //Create an instance of KafkaStreams
@@ -47,7 +47,7 @@ public class OrdersKafkaStreamApp {
     private static void createTopics(Properties config, List<String> topics) {
 
         AdminClient admin = AdminClient.create(config);
-        var partitions = 2;
+        var partitions = 1;
         short replication = 1;
 
         var newTopics = topics
