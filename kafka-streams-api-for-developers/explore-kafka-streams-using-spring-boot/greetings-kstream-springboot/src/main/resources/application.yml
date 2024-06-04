@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: greetings-kstream-springboot
+
+  profiles:
+    active: local
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  kafka:
+    streams:
+      application-id: greetings-kstream-springboot
+      bootstrap-servers: localhost:9092
