@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
 
 @Configuration
-public class Helper {
+public class GreetingStreamsConfiguration {
 
     @Bean
     public ObjectMapper createObjectMapper() {

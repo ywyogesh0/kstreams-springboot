@@ -14,11 +14,11 @@ import org.springframework.kafka.support.serializer.JsonSerde;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Topology {
+public class GreetingTopology {
 
     private final ObjectMapper objectMapper;
 
-    public Topology(ObjectMapper objectMapper) {
+    public GreetingTopology(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
 
