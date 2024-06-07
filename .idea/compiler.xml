@@ -5,8 +5,18 @@
       <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="explore-kafka-streams-using-spring-boot.app" target="17" />
+      <module name="explore-kafka-streams-using-spring-boot.app.main" target="17" />
+      <module name="explore-kafka-streams-using-spring-boot.app.test" target="17" />
+      <module name="greetings-kstream-springboot" target="17" />
       <module name="greetings-kstream-springboot.main" target="17" />
       <module name="greetings-kstream-springboot.test" target="17" />
+      <module name="orders-management-streams.orders-domain" target="17" />
+      <module name="orders-management-streams.orders-domain.main" target="17" />
+      <module name="orders-management-streams.orders-domain.test" target="17" />
+      <module name="orders-management-streams.orders-streams-app" target="17" />
+      <module name="orders-management-streams.orders-streams-app.main" target="17" />
+      <module name="orders-management-streams.orders-streams-app.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
