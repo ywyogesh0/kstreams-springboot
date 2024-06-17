@@ -4,10 +4,10 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot/greetings-kstream-springboot" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot" />
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot/greetings-kstream-springboot" />
           </set>
         </option>
       </GradleProjectSettings>

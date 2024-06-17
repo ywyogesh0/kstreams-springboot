@@ -43,11 +43,16 @@ public class GreetingTopology {
         // transform stream to upper case
         KStream<String, Greeting> greetingsUpperCaseKStream = greetingsConsumerKStream
                 .mapValues(
-                        (readOnlyKey, value) -> Greeting
-                                .builder()
-                                .message(value.getMessage().toUpperCase())
-                                .timeStamp(value.getTimeStamp())
-                                .build()
+                        (readOnlyKey, value) -> {
+                            if (value.getMessage().equals("Transient Error")) {
+                                throw new IllegalStateException("Throwing RuntTime Exception...");
+                            }
+                            return Greeting
+                                    .builder()
+                                    .message(value.getMessage().toUpperCase())
+                                    .timeStamp(value.getTimeStamp())
+                                    .build();
+                        }
                 );
 
         // print upper-case kstream

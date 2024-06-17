@@ -19,6 +19,9 @@ spring:
 
     properties:
       default:
+        production:
+          exception:
+            handler: com.springboot.kstream.greetings.exceptionhandler.CustomProductionExceptionHandler
         deserialization:
           exception:
             handler: com.springboot.kstream.greetings.exceptionhandler.CustomDeserializerExceptionHandler

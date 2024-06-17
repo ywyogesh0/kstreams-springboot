@@ -29,7 +29,6 @@
       <module name="explore-kafka-streams.orders-kafka-streams-app" target="17" />
       <module name="explore-kafka-streams.orders-kafka-streams-app.main" target="17" />
       <module name="explore-kafka-streams.orders-kafka-streams-app.test" target="17" />
-      <module name="greetings-kstream-springboot" target="17" />
       <module name="greetings-kstream-springboot.main" target="17" />
       <module name="greetings-kstream-springboot.test" target="17" />
       <module name="orders-management-streams.orders-domain" target="17" />
