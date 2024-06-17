@@ -10,6 +10,9 @@ public class Constants {
     public static final String GENERAL_ORDERS_COUNT = "general-orders-count";
     public static final String RESTAURANT_ORDERS_COUNT = "restaurant-orders-count";
 
+    public static final String GENERAL_WINDOWED_ORDERS_COUNT = "general-windowed-orders-count";
+    public static final String RESTAURANT_WINDOWED_ORDERS_COUNT = "restaurant-windowed-orders-count";
+
     public static final String GENERAL_ORDERS_REVENUE = "general-orders-revenue";
     public static final String RESTAURANT_ORDERS_REVENUE = "restaurant-orders-revenue";
 

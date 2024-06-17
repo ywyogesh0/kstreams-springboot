@@ -16,3 +16,10 @@ spring:
     streams:
       application-id: greetings-kstream-springboot
       bootstrap-servers: localhost:9092
+
+    properties:
+      default:
+        deserialization:
+          exception:
+            handler: com.springboot.kstream.greetings.exceptionhandler.CustomDeserializerExceptionHandler
+            #handler: org.apache.kafka.streams.errors.LogAndContinueExceptionHandler

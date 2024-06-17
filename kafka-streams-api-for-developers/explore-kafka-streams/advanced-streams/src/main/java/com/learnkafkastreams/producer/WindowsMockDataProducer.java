@@ -17,10 +17,10 @@ public class WindowsMockDataProducer {
     }
 
     private static void bulkMockDataProducer() throws InterruptedException {
-        var key = "D";
+        var key = "B";
         var word = "Apple";
         int count = 0;
-        while(count<20){
+        while(count<5){
             var recordMetaData = publishMessageSync(
                     Constants.TOPIC_WINDOW_WORDS, key, word
             );
@@ -34,7 +34,7 @@ public class WindowsMockDataProducer {
         var key = "A";
         var word = "Apple";
         int count = 0;
-        while(count<10){
+        while(count<5){
             var recordMetaData = publishMessageSync(
                     Constants.TOPIC_WINDOW_WORDS, key, word
             );

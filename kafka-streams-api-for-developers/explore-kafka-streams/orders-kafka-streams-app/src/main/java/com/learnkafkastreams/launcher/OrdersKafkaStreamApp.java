@@ -23,13 +23,14 @@ public class OrdersKafkaStreamApp {
 
         // create an instance of the topology
         Properties config = new Properties();
-        config.put(StreamsConfig.APPLICATION_ID_CONFIG, "orders-app"); // consumer group
+        config.put(StreamsConfig.APPLICATION_ID_CONFIG, "orders-windowed-app"); // consumer group
         config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "latest"); // read only the new messages
         config.put(StreamsConfig.NUM_STREAM_THREADS_CONFIG, "1");
+        config.put(StreamsConfig.COMMIT_INTERVAL_MS_CONFIG, "0");
 
-        //createTopics(config, List.of(ORDERS_TOPIC, GENERAL_ORDERS_TOPIC, RESTAURANT_ORDERS_TOPIC, STORES_TOPIC));
-        //createTopics(config, List.of(ORDERS_TOPIC));
+        createTopics(config, List.of(ORDERS_TOPIC, GENERAL_ORDERS_TOPIC, RESTAURANT_ORDERS_TOPIC, STORES_TOPIC));
+        //createTopics(config, List.of(ORDERS_TOPIC, STORES_TOPIC));
 
         //Create an instance of KafkaStreams
         var kafkaStreams = new KafkaStreams(OrdersTopology.buildTopology(), config);

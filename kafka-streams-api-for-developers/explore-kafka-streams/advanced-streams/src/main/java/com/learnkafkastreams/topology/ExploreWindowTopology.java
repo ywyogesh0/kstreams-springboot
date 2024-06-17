@@ -19,7 +19,7 @@ public class ExploreWindowTopology {
         /*tumbling window :
           - fixed interval
           - no overlapping
-          - window uses clock timestamp of app running machine
+          - window start/end timestamp is based on clock timestamp of app running machine
           - start second included
           - end second not included*/
         //triggerTumblingWindow(streamsBuilder);
@@ -27,7 +27,7 @@ public class ExploreWindowTopology {
         /*hopping window :
           - fixed interval
           - overlapping
-          - window uses clock timestamp of app running machine
+          - window start/end timestamp is based on clock timestamp of app running machine
           - start second included
           - end second not included*/
         //triggerHoppingWindow(streamsBuilder);
@@ -35,7 +35,7 @@ public class ExploreWindowTopology {
         /*sliding window :
           - fixed interval
           - overlapping
-          - window uses consumer record timestamp via timestamp extractor
+          - window start/end timestamp is based on consumer record timestamp via timestamp extractor
           - start second included
           - end second included*/
         triggerSlidingWindow(streamsBuilder);
@@ -141,6 +141,8 @@ public class ExploreWindowTopology {
     }
 
     private static void displayWindowedTableTimestamp(Windowed<String> key, Long value) {
+        log.info("key: {}, value: {}", key.key(), value);
+
         Instant windowedKeyStartTime = key.window().startTime();
         Instant windowedKeyEndTime = key.window().endTime();
 
@@ -155,7 +157,5 @@ public class ExploreWindowTopology {
 
         log.info("windowed key start time in BST: {}", windowedKeyLocalStartTime);
         log.info("windowed key end time in BST: {}", windowedKeyLocalEndTime);
-
-        log.info("Key: {}, Value: {}", key.key(), value);
     }
 }

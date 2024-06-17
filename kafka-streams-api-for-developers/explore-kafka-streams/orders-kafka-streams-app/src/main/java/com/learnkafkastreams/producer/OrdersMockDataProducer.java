@@ -26,8 +26,8 @@ public class OrdersMockDataProducer {
                 .registerModule(new JavaTimeModule())
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
-        publishOrders(objectMapper, buildOrders());
-        //publishBulkOrders(objectMapper);
+        //publishOrders(objectMapper, buildOrders());
+        publishBulkOrders(objectMapper);
 
         //grace-period
 //        publishOrdersForGracePeriod(objectMapper, buildOrders());
@@ -233,7 +233,7 @@ public class OrdersMockDataProducer {
     private static void publishBulkOrders(ObjectMapper objectMapper) throws InterruptedException {
 
         int count = 0;
-        while (count < 100) {
+        while (count < 10) {
             var orders = buildOrders();
             publishOrders(objectMapper, orders);
             sleep(1000);

@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/greetings-kstream-springboot/explore-kafka-streams-using-spring-boot.greetings-kstream-springboot.main.iml" filepath="$PROJECT_DIR$/.idea/modules/greetings-kstream-springboot/explore-kafka-streams-using-spring-boot.greetings-kstream-springboot.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/advanced-streams/explore-kafka-streams.advanced-streams.main.iml" filepath="$PROJECT_DIR$/.idea/modules/advanced-streams/explore-kafka-streams.advanced-streams.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/greeting-streams/explore-kafka-streams.greeting-streams.main.iml" filepath="$PROJECT_DIR$/.idea/modules/greeting-streams/explore-kafka-streams.greeting-streams.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/greeting-streams/explore-kafka-streams.greeting-streams.test.iml" filepath="$PROJECT_DIR$/.idea/modules/greeting-streams/explore-kafka-streams.greeting-streams.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/orders-kafka-streams-app/explore-kafka-streams.orders-kafka-streams-app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/orders-kafka-streams-app/explore-kafka-streams.orders-kafka-streams-app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/orders-kafka-streams-app/explore-kafka-streams.orders-kafka-streams-app.test.iml" filepath="$PROJECT_DIR$/.idea/modules/orders-kafka-streams-app/explore-kafka-streams.orders-kafka-streams-app.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/kstreams-springboot.iml" filepath="$PROJECT_DIR$/.idea/kstreams-springboot.iml" />
     </modules>
   </component>
