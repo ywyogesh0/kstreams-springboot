@@ -11,14 +11,14 @@ import java.time.ZoneOffset;
 @Slf4j
 public class OrderTimestampExtractor implements TimestampExtractor {
     @Override
-    public long extract(ConsumerRecord<Object, Object> consumerRecord, long l) {
+    public long extract(ConsumerRecord<Object, Object> consumerRecord, long partitionTime) {
         if(null != consumerRecord) {
             Order order = (Order) consumerRecord.value();
             LocalDateTime payloadTimestampInBST = order.orderedDateTime();
             return payloadTimestampInBST
-                    .minusHours(1)
-                    .toEpochSecond(ZoneOffset.UTC);
+                    .toInstant(ZoneOffset.ofHours(1))
+                    .toEpochMilli();
         }
-        return l;
+        return partitionTime;
     }
 }

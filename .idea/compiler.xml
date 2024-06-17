@@ -20,17 +20,6 @@
       <module name="explore-kafka-streams-using-spring-boot.greetings-kstream-springboot" target="17" />
       <module name="explore-kafka-streams-using-spring-boot.greetings-kstream-springboot.main" target="17" />
       <module name="explore-kafka-streams-using-spring-boot.greetings-kstream-springboot.test" target="17" />
-      <module name="explore-kafka-streams.advanced-streams" target="17" />
-      <module name="explore-kafka-streams.advanced-streams.main" target="17" />
-      <module name="explore-kafka-streams.advanced-streams.test" target="17" />
-      <module name="explore-kafka-streams.greeting-streams" target="17" />
-      <module name="explore-kafka-streams.greeting-streams.main" target="17" />
-      <module name="explore-kafka-streams.greeting-streams.test" target="17" />
-      <module name="explore-kafka-streams.orders-kafka-streams-app" target="17" />
-      <module name="explore-kafka-streams.orders-kafka-streams-app.main" target="17" />
-      <module name="explore-kafka-streams.orders-kafka-streams-app.test" target="17" />
-      <module name="greetings-kstream-springboot.main" target="17" />
-      <module name="greetings-kstream-springboot.test" target="17" />
       <module name="orders-management-streams.orders-domain" target="17" />
       <module name="orders-management-streams.orders-domain.main" target="17" />
       <module name="orders-management-streams.orders-domain.test" target="17" />

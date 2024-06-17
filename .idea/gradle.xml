@@ -4,10 +4,29 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams" />
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams/advanced-streams" />
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams/greeting-streams" />
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams/orders-kafka-streams-app" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot/greetings-kstream-springboot" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot/greetings-kstream-springboot" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot/orders-management-streams" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot/orders-management-streams" />
           </set>
         </option>
       </GradleProjectSettings>
