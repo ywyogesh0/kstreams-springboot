@@ -6,21 +6,16 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.32/17d46b3e205515e1e8efd3ee4d57ce8018914163/lombok-1.18.32.jar" />
         </processorPath>
-        <module name="orders-management-streams.orders-streams-app.main" />
+        <module name="com.springboot.kstream.greetings.greetings-kstream-springboot.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="com.learnkafkastreams.explore-kafka-streams.advanced-streams" target="17" />
-      <module name="com.learnkafkastreams.explore-kafka-streams.advanced-streams.main" target="17" />
       <module name="com.learnkafkastreams.explore-kafka-streams.advanced-streams.test" target="17" />
       <module name="com.learnkafkastreams.explore-kafka-streams.greeting-streams" target="17" />
-      <module name="com.learnkafkastreams.explore-kafka-streams.greeting-streams.main" target="17" />
-      <module name="com.learnkafkastreams.explore-kafka-streams.greeting-streams.test" target="17" />
       <module name="com.learnkafkastreams.explore-kafka-streams.orders-kafka-streams-app" target="17" />
-      <module name="com.learnkafkastreams.explore-kafka-streams.orders-kafka-streams-app.main" target="17" />
-      <module name="com.learnkafkastreams.explore-kafka-streams.orders-kafka-streams-app.test" target="17" />
       <module name="explore-kafka-streams-using-spring-boot.app" target="17" />
       <module name="explore-kafka-streams-using-spring-boot.app.main" target="17" />
       <module name="explore-kafka-streams-using-spring-boot.app.test" target="17" />
