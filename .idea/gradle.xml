@@ -27,6 +27,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot/orders-management-streams" />
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot/orders-management-streams/orders-domain" />
+            <option value="$PROJECT_DIR$/kafka-streams-api-for-developers/explore-kafka-streams-using-spring-boot/orders-management-streams/orders-streams-app" />
           </set>
         </option>
       </GradleProjectSettings>

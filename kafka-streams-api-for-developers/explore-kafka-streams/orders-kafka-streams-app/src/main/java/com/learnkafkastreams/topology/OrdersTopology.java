@@ -20,13 +20,13 @@ public class OrdersTopology {
     public static Topology buildTopology() {
         StreamsBuilder streamsBuilder = new StreamsBuilder();
 
-        // AggWindowedOrdersCountByStore
-        AggWindowedOrdersCountByStore aggWindowedOrdersCountByStore =
-                new AggWindowedOrdersCountByStore();
-
         // AggOrdersCountByStore
         AggOrdersCountByStore aggOrdersCountByStore =
                 new AggOrdersCountByStore();
+
+        // AggWindowedOrdersCountByStore
+        AggWindowedOrdersCountByStore aggWindowedOrdersCountByStore =
+                new AggWindowedOrdersCountByStore();
 
         // general order - predicate
         Predicate<String, Order> generalPredicate = ((orderKey, orderValue) ->

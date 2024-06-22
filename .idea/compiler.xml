@@ -3,6 +3,13 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.24/13a394eed5c4f9efb2a6d956e2086f1d81e857d9/lombok-1.18.24.jar" />
+        </processorPath>
+        <module name="orders-management-streams.orders-streams-app.main" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
       <module name="com.learnkafkastreams.explore-kafka-streams.advanced-streams" target="17" />
@@ -20,12 +27,6 @@
       <module name="explore-kafka-streams-using-spring-boot.greetings-kstream-springboot" target="17" />
       <module name="explore-kafka-streams-using-spring-boot.greetings-kstream-springboot.main" target="17" />
       <module name="explore-kafka-streams-using-spring-boot.greetings-kstream-springboot.test" target="17" />
-      <module name="orders-management-streams.orders-domain" target="17" />
-      <module name="orders-management-streams.orders-domain.main" target="17" />
-      <module name="orders-management-streams.orders-domain.test" target="17" />
-      <module name="orders-management-streams.orders-streams-app" target="17" />
-      <module name="orders-management-streams.orders-streams-app.main" target="17" />
-      <module name="orders-management-streams.orders-streams-app.test" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

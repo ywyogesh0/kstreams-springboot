@@ -247,7 +247,7 @@ public class OrdersMockDataProducer {
                 .forEach(order -> {
                     try {
                         var ordersJSON = objectMapper.writeValueAsString(order);
-                        var recordMetaData = publishMessageSync(Constants.ORDERS_TOPIC, order.locationId() + "", ordersJSON);
+                        var recordMetaData = publishMessageSync(Constants.ORDERS_TOPIC, order.locationId(), ordersJSON);
                         log.info("Published the order message : {} ", recordMetaData);
                     } catch (JsonProcessingException e) {
                         log.error("JsonProcessingException : {} ", e.getMessage(), e);

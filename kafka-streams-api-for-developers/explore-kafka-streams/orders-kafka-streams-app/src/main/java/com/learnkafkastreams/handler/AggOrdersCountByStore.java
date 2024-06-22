@@ -18,7 +18,7 @@ public class AggOrdersCountByStore implements AggWindowedHandler<Order, Store> {
             KTable<String, Store> lookupTable
     ) {
         KTable<String, Long> countKTable = consumerKStream
-                .map((key, order) -> KeyValue.pair(order.locationId(), order))
+                //.map((key, order) -> KeyValue.pair(order.locationId(), order))
                 .groupByKey(
                         Grouped.with(Serdes.String(), SerdeFactory.generateOrderSerde())
                 )
