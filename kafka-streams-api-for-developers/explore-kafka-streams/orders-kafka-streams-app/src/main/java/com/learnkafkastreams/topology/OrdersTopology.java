@@ -2,6 +2,7 @@ package com.learnkafkastreams.topology;
 
 import com.learnkafkastreams.domain.*;
 import com.learnkafkastreams.handler.AggOrdersCountByStore;
+import com.learnkafkastreams.handler.AggOrdersRevenueByStore;
 import com.learnkafkastreams.handler.AggWindowedOrdersCountByStore;
 import com.learnkafkastreams.serdes.SerdeFactory;
 import com.learnkafkastreams.util.Constants;
@@ -28,6 +29,10 @@ public class OrdersTopology {
         AggWindowedOrdersCountByStore aggWindowedOrdersCountByStore =
                 new AggWindowedOrdersCountByStore();
 
+        // AggOrdersRevenueByStore
+        AggOrdersRevenueByStore aggOrdersRevenueByStore =
+                new AggOrdersRevenueByStore();
+
         // general order - predicate
         Predicate<String, Order> generalPredicate = ((orderKey, orderValue) ->
                 OrderType.GENERAL.equals(orderValue.orderType()));
@@ -37,10 +42,10 @@ public class OrdersTopology {
                 OrderType.RESTAURANT.equals(orderValue.orderType()));
 
         // transform order to revenue domain stream
-        ValueMapper<Order, Revenue> revenueValueMapper = (order) -> new Revenue(
+        /*ValueMapper<Order, Revenue> revenueValueMapper = (order) -> new Revenue(
                 order.locationId(),
                 order.finalAmount()
-        );
+        );*/
 
         // source processor - stream from orders topic
         KStream<String, Order> ordersStream = streamsBuilder
@@ -87,6 +92,7 @@ public class OrdersTopology {
                                     .mapValues(
                                             (readOnlyOrderKey, orderValue) -> revenueValueMapper.apply(orderValue)
                                     );
+
                             revenueGeneralKStream.print(
                                     Printed.<String, Revenue>toSysOut().withLabel("general-branched-stream")
                             );
@@ -103,18 +109,19 @@ public class OrdersTopology {
                                             storeKTable
                                     );*/
 
-                            aggWindowedOrdersCountByStore
+                            /*aggWindowedOrdersCountByStore
                                     .aggregate(
                                             generalOrderKStream,
                                             Constants.GENERAL_WINDOWED_ORDERS_COUNT,
                                             storeKTable
-                                    );
+                                    );*/
 
-                            /*aggregateOrdersRevenueByStore(
-                            generalOrderKStream,
-                                    Constants.GENERAL_ORDERS_REVENUE,
-                                    storeKTable
-                            );*/
+                            /*aggOrdersRevenueByStore.
+                                    aggregate(
+                                            generalOrderKStream,
+                                            Constants.GENERAL_ORDERS_REVENUE,
+                                            storeKTable
+                                    );*/
                         })
                 )
                 .branch(
@@ -139,76 +146,22 @@ public class OrdersTopology {
                                             storeKTable
                                     );*/
 
-                            aggWindowedOrdersCountByStore
+                            /*aggWindowedOrdersCountByStore
                                     .aggregate(
                                             restaurantOrderKStream,
                                             Constants.RESTAURANT_WINDOWED_ORDERS_COUNT,
                                             storeKTable
-                                    );
+                                    );*/
 
-                            /*aggregateOrdersRevenueByStore(
-                                    restaurantOrderKStream,
-                                    Constants.RESTAURANT_ORDERS_REVENUE,
-                                    storeKTable
-                            );*/
+                            /*aggOrdersRevenueByStore.
+                                    aggregate(
+                                            restaurantOrderKStream,
+                                            Constants.RESTAURANT_ORDERS_REVENUE,
+                                            storeKTable
+                                    );*/
                         })
                 );
 
         return streamsBuilder.build();
-    }
-
-    private static void aggregateOrdersRevenueByStore(
-            KStream<String, Order> orderKStream,
-            String stateStore,
-            KTable<String, Store> storeKTable
-    ) {
-        // initializer for TotalRevenue java bean
-        Initializer<TotalRevenue> totalRevenueInitializer = TotalRevenue::new;
-
-        // aggregator for TotalRevenue java bean
-        Aggregator<String, Order, TotalRevenue> totalRevenueAggregator =
-                (key, order, aggregate) -> aggregate.updateTotalRevenue(key, order);
-
-        KTable<String, TotalRevenue> totalRevenueKTable = orderKStream
-                .groupBy(
-                        (key, order) -> order.locationId(),
-                        Grouped.with(Serdes.String(), SerdeFactory.generateOrderSerde())
-                )
-                /*.groupByKey(
-                        Grouped.with(Serdes.String(), SerdeFactory.generateOrderSerde())
-                )*/
-                .aggregate(
-                        totalRevenueInitializer,
-                        totalRevenueAggregator,
-                        Named.as(stateStore),
-                        Materialized
-                                .<String, TotalRevenue, KeyValueStore<Bytes, byte[]>>as(stateStore)
-                                .withKeySerde(Serdes.String())
-                                .withValueSerde(SerdeFactory.generateTotalRevenueSerde())
-                );
-
-        totalRevenueKTable
-                .toStream()
-                .print(
-                        Printed.<String, TotalRevenue>toSysOut().withLabel(stateStore)
-                );
-
-        // join between kTable-kTable
-        ValueJoiner<TotalRevenue, Store, TotalRevenueWithAddress> valueJoiner = TotalRevenueWithAddress::new;
-
-        KTable<String, TotalRevenueWithAddress> totalRevenueWithAddressKTable = totalRevenueKTable
-                .join(
-                        storeKTable,
-                        valueJoiner,
-                        Materialized
-                                .<String, TotalRevenueWithAddress, KeyValueStore<Bytes, byte[]>>
-                                        as("total-" + stateStore + "-store")
-                                .withKeySerde(Serdes.String())
-                                .withValueSerde(SerdeFactory.generateTotalRevenueWithAddressSerde())
-                );
-
-        totalRevenueWithAddressKTable
-                .toStream()
-                .print(Printed.<String, TotalRevenueWithAddress>toSysOut().withLabel("total-" + stateStore + "-stream"));
     }
 }
