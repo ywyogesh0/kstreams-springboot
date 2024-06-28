@@ -12,12 +12,12 @@ import java.time.ZoneOffset;
 public class OrderTimestampExtractor implements TimestampExtractor {
     @Override
     public long extract(ConsumerRecord<Object, Object> consumerRecord, long partitionTime) {
-        if(null != consumerRecord) {
+        if (null != consumerRecord) {
             Order order = (Order) consumerRecord.value();
             LocalDateTime payloadTimestampInBST = order.orderedDateTime();
-            return payloadTimestampInBST
+            return null != payloadTimestampInBST ? payloadTimestampInBST
                     .toInstant(ZoneOffset.ofHours(1))
-                    .toEpochMilli();
+                    .toEpochMilli() : partitionTime;
         }
         return partitionTime;
     }

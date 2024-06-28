@@ -4,6 +4,7 @@ import com.learnkafkastreams.domain.*;
 import com.learnkafkastreams.handler.AggOrdersCountByStore;
 import com.learnkafkastreams.handler.AggOrdersRevenueByStore;
 import com.learnkafkastreams.handler.AggWindowedOrdersCountByStore;
+import com.learnkafkastreams.handler.AggWindowedOrdersRevenueByStore;
 import com.learnkafkastreams.serdes.SerdeFactory;
 import com.learnkafkastreams.util.Constants;
 import com.learnkafkastreams.util.OrderTimestampExtractor;
@@ -32,6 +33,10 @@ public class OrdersTopology {
         // AggOrdersRevenueByStore
         AggOrdersRevenueByStore aggOrdersRevenueByStore =
                 new AggOrdersRevenueByStore();
+
+        // AggWindowedOrdersRevenueByStore
+        AggWindowedOrdersRevenueByStore aggWindowedOrdersRevenueByStore =
+                new AggWindowedOrdersRevenueByStore();
 
         // general order - predicate
         Predicate<String, Order> generalPredicate = ((orderKey, orderValue) ->
@@ -122,6 +127,13 @@ public class OrdersTopology {
                                             Constants.GENERAL_ORDERS_REVENUE,
                                             storeKTable
                                     );*/
+
+                            /*aggWindowedOrdersRevenueByStore.
+                                    aggregate(
+                                            generalOrderKStream,
+                                            Constants.GENERAL_WINDOWED_ORDERS_REVENUE,
+                                            storeKTable
+                                    );*/
                         })
                 )
                 .branch(
@@ -157,6 +169,13 @@ public class OrdersTopology {
                                     aggregate(
                                             restaurantOrderKStream,
                                             Constants.RESTAURANT_ORDERS_REVENUE,
+                                            storeKTable
+                                    );*/
+
+                            /*aggWindowedOrdersRevenueByStore.
+                                    aggregate(
+                                            restaurantOrderKStream,
+                                            Constants.RESTAURANT_WIDOWED_ORDERS_REVENUE,
                                             storeKTable
                                     );*/
                         })
