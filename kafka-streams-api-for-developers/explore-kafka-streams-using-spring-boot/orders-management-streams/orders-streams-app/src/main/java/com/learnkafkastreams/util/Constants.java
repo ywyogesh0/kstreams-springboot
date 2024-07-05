@@ -19,6 +19,9 @@ public class Constants {
     public static final String GENERAL_WINDOWED_ORDERS_REVENUE = "general-windowed-orders-revenue";
     public static final String RESTAURANT_WIDOWED_ORDERS_REVENUE = "restaurant-windowed-orders-revenue";
 
+    public static final String GENERAL_ORDERS_PATH_VARIABLE = "general_orders";
+    public static final String RESTAURANT_ORDERS_PATH_VARIABLE = "restaurant_orders";
+
     // stores
     public static final String STORES_TOPIC = "stores";
 }

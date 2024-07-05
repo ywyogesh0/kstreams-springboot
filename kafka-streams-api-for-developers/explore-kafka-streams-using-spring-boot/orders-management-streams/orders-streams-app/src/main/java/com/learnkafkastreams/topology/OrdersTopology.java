@@ -115,12 +115,12 @@ public class OrdersTopology {
                                     Produced.with(Serdes.String(), SerdeFactory.generateRevenueSerde())
                             );*/
 
-                            /*aggOrdersCountByStore
+                            aggOrdersCountByStore
                                     .aggregate(
                                             generalOrderKStream,
                                             Constants.GENERAL_ORDERS_COUNT,
                                             storeKTable
-                                    );*/
+                                    );
 
                             /*aggWindowedOrdersCountByStore
                                     .aggregate(
@@ -159,12 +159,12 @@ public class OrdersTopology {
                                     Produced.with(Serdes.String(), SerdeFactory.generateRevenueSerde())
                             );*/
 
-                            /*aggOrdersCountByStore
+                            aggOrdersCountByStore
                                     .aggregate(
                                             restaurantOrderKStream,
                                             Constants.RESTAURANT_ORDERS_COUNT,
                                             storeKTable
-                                    );*/
+                                    );
 
                             /*aggWindowedOrdersCountByStore
                                     .aggregate(
