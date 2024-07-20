@@ -230,13 +230,11 @@ kafka-console-producer --broker-list localhost:9092 --property "key.separator=:"
 kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic greetings-consumer-2
 kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic greetings-producer --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer"
 
-
 // order management
 
 kafka-console-producer --broker-list localhost:9092 --property "key.separator=:" --property "parse.key=true" --topic orders
 kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic general-orders --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer"
 kafka-console-consumer --bootstrap-server localhost:9092 --property "key.separator=:" --property "print.key=true" --topic restaurant-orders --value-deserializer "org.apache.kafka.common.serialization.StringDeserializer"
-
 
 // words
 
@@ -263,3 +261,31 @@ kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-gene
 kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-general-orders-revenue-repartition
 kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-restaurant-orders-revenue-changelog
 kafka-console-consumer --bootstrap-server localhost:9092 --topic orders-app-restaurant-orders-revenue-repartition
+
+// spring initializr
+https://start.spring.io/
+
+// windowed - words app
+kafka-console-consumer --bootstrap-server localhost:9092 --topic window-words
+
+// interactive queries - querying state stores using RESTFul APIs
+
+Task 1 : Retrieve Orders Count By Order Type
+curl -i http://localhost:8080/v1/orders/count/general_orders
+curl -i http://localhost:8080/v1/orders/count/restaurant_orders
+
+Task 2 : Retrieve Orders Count By Order Type & Location Id
+curl -i http://localhost:8080/v1/orders/count/general_orders?location_id=store_1234
+
+Task 3 : Retrieve All Orders Count for All Types
+curl -i http://localhost:8080/v1/orders/count
+
+Task 4 : Retrieve Revenue By Order Type
+curl -i http://localhost:8080/v1/orders/revenue/general_orders
+curl -i http://localhost:8080/v1/orders/revenue/restaurant_orders
+
+Task 5 : Retrieve Revenue By Order Type & Location Id
+curl -i http://localhost:8080/v1/orders/revenue/general_orders?location_id=store_1234
+
+Task 6 : Retrieve All Revenue for All Types
+curl -i http://localhost:8080/v1/orders/revenue

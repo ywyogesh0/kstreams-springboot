@@ -14,7 +14,7 @@ import org.apache.kafka.streams.state.WindowStore;
 
 import java.time.Duration;
 
-public class AggWindowedOrdersRevenueByStore implements AggWindowedHandler<Order, Store> {
+public class AggWindowedOrdersRevenueByStore implements AggHandler<Order, Store> {
     @Override
     public void aggregate(
             KStream<String, Order> consumerKStream,
@@ -58,10 +58,10 @@ public class AggWindowedOrdersRevenueByStore implements AggWindowedHandler<Order
                 );
 
         // join between kStream-kTable
-        ValueJoiner<TotalRevenue, Store, TotalRevenueWithAddress> valueJoiner = TotalRevenueWithAddress::new;
+        /*ValueJoiner<TotalRevenue, Store, TotalRevenueWithAddress> valueJoiner = TotalRevenueWithAddress::new;
 
         Joined<String, TotalRevenue, Store> joinedParam = Joined
-                .<String, TotalRevenue, Store>as("orders-revenue-join")
+                .<String, TotalRevenue, Store>as("windowed-orders-revenue-join")
                 .withKeySerde(Serdes.String())
                 .withValueSerde(SerdeFactory.generateTotalRevenueSerde())
                 .withOtherValueSerde(SerdeFactory.generateStoreSerde());
@@ -76,6 +76,6 @@ public class AggWindowedOrdersRevenueByStore implements AggWindowedHandler<Order
                 );
 
         totalRevenueWithAddressKStream
-                .print(Printed.<String, TotalRevenueWithAddress>toSysOut().withLabel("total-" + stateStore + "-stream"));
+                .print(Printed.<String, TotalRevenueWithAddress>toSysOut().withLabel("total-" + stateStore + "-stream"));*/
     }
 }

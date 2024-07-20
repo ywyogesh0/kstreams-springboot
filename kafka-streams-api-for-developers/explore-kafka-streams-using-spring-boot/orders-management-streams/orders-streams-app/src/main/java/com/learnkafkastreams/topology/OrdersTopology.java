@@ -17,7 +17,6 @@ import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.kstream.*;
 import org.apache.kafka.streams.state.KeyValueStore;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.kafka.support.serializer.JsonSerde;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -122,26 +121,26 @@ public class OrdersTopology {
                                             storeKTable
                                     );
 
-                            /*aggWindowedOrdersCountByStore
+                            aggWindowedOrdersCountByStore
                                     .aggregate(
                                             generalOrderKStream,
                                             Constants.GENERAL_WINDOWED_ORDERS_COUNT,
                                             storeKTable
-                                    );*/
+                                    );
 
-                            /*aggOrdersRevenueByStore.
+                            aggOrdersRevenueByStore.
                                     aggregate(
                                             generalOrderKStream,
                                             Constants.GENERAL_ORDERS_REVENUE,
                                             storeKTable
-                                    );*/
+                                    );
 
-                            /*aggWindowedOrdersRevenueByStore.
+                            aggWindowedOrdersRevenueByStore.
                                     aggregate(
                                             generalOrderKStream,
                                             Constants.GENERAL_WINDOWED_ORDERS_REVENUE,
                                             storeKTable
-                                    );*/
+                                    );
                         })
                 )
                 .branch(
@@ -166,26 +165,26 @@ public class OrdersTopology {
                                             storeKTable
                                     );
 
-                            /*aggWindowedOrdersCountByStore
+                            aggWindowedOrdersCountByStore
                                     .aggregate(
                                             restaurantOrderKStream,
                                             Constants.RESTAURANT_WINDOWED_ORDERS_COUNT,
                                             storeKTable
-                                    );*/
+                                    );
 
-                            /*aggOrdersRevenueByStore.
+                            aggOrdersRevenueByStore.
                                     aggregate(
                                             restaurantOrderKStream,
                                             Constants.RESTAURANT_ORDERS_REVENUE,
                                             storeKTable
-                                    );*/
+                                    );
 
-                            /*aggWindowedOrdersRevenueByStore.
+                            aggWindowedOrdersRevenueByStore.
                                     aggregate(
                                             restaurantOrderKStream,
                                             Constants.RESTAURANT_WIDOWED_ORDERS_REVENUE,
                                             storeKTable
-                                    );*/
+                                    );
                         })
                 );
     }

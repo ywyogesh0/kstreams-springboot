@@ -3,14 +3,13 @@ package com.learnkafkastreams.handler;
 import com.learnkafkastreams.domain.Order;
 import com.learnkafkastreams.domain.Store;
 import com.learnkafkastreams.domain.TotalRevenue;
-import com.learnkafkastreams.domain.TotalRevenueWithAddress;
 import com.learnkafkastreams.serdes.SerdeFactory;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.common.utils.Bytes;
 import org.apache.kafka.streams.kstream.*;
 import org.apache.kafka.streams.state.KeyValueStore;
 
-public class AggOrdersRevenueByStore implements AggWindowedHandler<Order, Store> {
+public class AggOrdersRevenueByStore implements AggHandler<Order, Store> {
     @Override
     public void aggregate(
             KStream<String, Order> consumerKStream,
@@ -49,7 +48,7 @@ public class AggOrdersRevenueByStore implements AggWindowedHandler<Order, Store>
                 );
 
         // join between kTable-kTable
-        ValueJoiner<TotalRevenue, Store, TotalRevenueWithAddress> valueJoiner = TotalRevenueWithAddress::new;
+        /*ValueJoiner<TotalRevenue, Store, TotalRevenueWithAddress> valueJoiner = TotalRevenueWithAddress::new;
 
         KTable<String, TotalRevenueWithAddress> totalRevenueWithAddressKTable = totalRevenueKTable
                 .join(
@@ -64,6 +63,6 @@ public class AggOrdersRevenueByStore implements AggWindowedHandler<Order, Store>
 
         totalRevenueWithAddressKTable
                 .toStream()
-                .print(Printed.<String, TotalRevenueWithAddress>toSysOut().withLabel("total-" + stateStore + "-stream"));
+                .print(Printed.<String, TotalRevenueWithAddress>toSysOut().withLabel("total-" + stateStore + "-stream"));*/
     }
 }

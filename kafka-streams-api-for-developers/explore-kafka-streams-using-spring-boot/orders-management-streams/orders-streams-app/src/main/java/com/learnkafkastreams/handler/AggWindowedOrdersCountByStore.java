@@ -13,7 +13,7 @@ import org.apache.kafka.streams.state.WindowStore;
 
 import java.time.Duration;
 
-public class AggWindowedOrdersCountByStore implements AggWindowedHandler<Order, Store> {
+public class AggWindowedOrdersCountByStore implements AggHandler<Order, Store> {
     @Override
     public void aggregate(
             KStream<String, Order> consumerKStream,
@@ -54,10 +54,10 @@ public class AggWindowedOrdersCountByStore implements AggWindowedHandler<Order, 
                 );
 
         // join between kStream-kTable
-        ValueJoiner<Long, Store, TotalCountWithAddress> valueJoiner = TotalCountWithAddress::new;
+        /*ValueJoiner<Long, Store, TotalCountWithAddress> valueJoiner = TotalCountWithAddress::new;
 
         Joined<String, Long, Store> joinedParam = Joined
-                .<String, Long, Store>as("orders-count-join")
+                .<String, Long, Store>as("windowed-orders-count-join")
                 .withKeySerde(Serdes.String())
                 .withValueSerde(Serdes.Long())
                 .withOtherValueSerde(SerdeFactory.generateStoreSerde());
@@ -74,6 +74,6 @@ public class AggWindowedOrdersCountByStore implements AggWindowedHandler<Order, 
         totalCountWithAddressKStream
                 .print(
                         Printed.<String, TotalCountWithAddress>toSysOut().withLabel("total-" + stateStore + "-stream")
-                );
+                );*/
     }
 }

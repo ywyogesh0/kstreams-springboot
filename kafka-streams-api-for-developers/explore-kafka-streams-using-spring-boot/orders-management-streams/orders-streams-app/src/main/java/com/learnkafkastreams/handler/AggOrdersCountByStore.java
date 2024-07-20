@@ -2,14 +2,13 @@ package com.learnkafkastreams.handler;
 
 import com.learnkafkastreams.domain.Order;
 import com.learnkafkastreams.domain.Store;
-import com.learnkafkastreams.domain.TotalCountWithAddress;
 import com.learnkafkastreams.serdes.SerdeFactory;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.common.utils.Bytes;
 import org.apache.kafka.streams.kstream.*;
 import org.apache.kafka.streams.state.KeyValueStore;
 
-public class AggOrdersCountByStore implements AggWindowedHandler<Order, Store> {
+public class AggOrdersCountByStore implements AggHandler<Order, Store> {
     @Override
     public void aggregate(
             KStream<String, Order> consumerKStream,
@@ -36,7 +35,7 @@ public class AggOrdersCountByStore implements AggWindowedHandler<Order, Store> {
                 );
 
         // join between kTable-kTable
-        ValueJoiner<Long, Store, TotalCountWithAddress> valueJoiner = TotalCountWithAddress::new;
+        /*ValueJoiner<Long, Store, TotalCountWithAddress> valueJoiner = TotalCountWithAddress::new;
 
         KTable<String, TotalCountWithAddress> totalCountWithAddressKTable = countKTable
                 .join(
@@ -53,6 +52,6 @@ public class AggOrdersCountByStore implements AggWindowedHandler<Order, Store> {
                 .toStream()
                 .print(
                         Printed.<String, TotalCountWithAddress>toSysOut().withLabel("total-" + stateStore + "-stream")
-                );
+                );*/
     }
 }

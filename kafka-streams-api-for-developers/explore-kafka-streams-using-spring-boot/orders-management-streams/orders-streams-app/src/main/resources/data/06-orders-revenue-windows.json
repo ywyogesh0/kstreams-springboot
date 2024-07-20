@@ -3,7 +3,7 @@
     "locationId": "store_1234",
     "totalRevenue": {
       "locationId": "store_1234",
-      "runnuingOrderCount": 27,
+      "runningOrderCount": 27,
       "runningRevenue": 405.00
     },
     "orderType": "RESTAURANT",
@@ -14,7 +14,7 @@
     "locationId": "store_1234",
     "totalRevenue": {
       "locationId": "store_1234",
-      "runnuingOrderCount": 29,
+      "runningOrderCount": 29,
       "runningRevenue": 435.00
     }
   }

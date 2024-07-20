@@ -6,6 +6,7 @@ import org.apache.kafka.streams.kstream.Windowed;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 
 @Slf4j
 public class OrderHelperUtility {
@@ -27,5 +28,13 @@ public class OrderHelperUtility {
 
         log.info("windowed key start time in BST: {}", windowedKeyLocalStartTime);
         log.info("windowed key end time in BST: {}", windowedKeyLocalEndTime);
+    }
+
+    public static LocalDateTime convertInstantToLocalTime(Instant instant) {
+        return LocalDateTime.ofInstant(instant, ZoneId.of("GMT"));
+    }
+
+    public static Instant convertLocalToInstantTime(LocalDateTime localDateTime) {
+        return localDateTime.toInstant(ZoneOffset.UTC);
     }
 }
