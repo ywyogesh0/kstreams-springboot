@@ -289,3 +289,22 @@ curl -i http://localhost:8080/v1/orders/revenue/general_orders?location_id=store
 
 Task 6 : Retrieve All Revenue for All Types
 curl -i http://localhost:8080/v1/orders/revenue
+
+Task 7 : Retrieve Windowed Orders Count By Order Type
+curl -i http://localhost:8080/v1/orders/windows/count/restaurant_orders
+curl -i http://localhost:8080/v1/orders/windows/count/general_orders
+
+Task 8 : Retrieve All Windowed Orders Count for All Types
+curl -i http://localhost:8080/v1/orders/windows/count
+
+Task 9 : Retrieve All Windowed Orders Count By passing custom from and to time
+// start_time and to_time are inclusive in the result:
+Example: to_time=2023-02-14T11:33:30Z, If there is a start window with this value then it gets included in the fetched result.
+
+curl -i http://localhost:8080/v1/orders/windows/count?from_time=2023-02-16T11:27:00&to_time=2023-02-16T11:27:00
+curl -i http://localhost:8081/v1/orders/windows/count?from_time=2023-02-16T11:27:00&to_time=2023-02-16T11:27:00
+curl -i http://localhost:8081/v1/orders/windows/count?from_time=2023-02-25T11:29:00&to_time=2023-02-16T11:27:00
+
+Task 10 : Retrieve Windowed Orders Revenue By Order Type
+curl -i http://localhost:8080/v1/orders/windows/revenue/restaurant_orders
+curl -i http://localhost:8080/v1/orders/windows/revenue/general_orders
