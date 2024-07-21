@@ -1,7 +1,7 @@
 package com.learnkafkastreams.config;
 
 import com.learnkafkastreams.exceptionhandler.StreamsProcessorCustomErrorHandler;
-import com.learnkafkastreams.topology.OrdersTopology;
+import com.learnkafkastreams.util.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.common.TopicPartition;
@@ -44,20 +44,19 @@ public class OrdersStreamsConfiguration {
     @Bean
     public StreamsBuilderFactoryBeanConfigurer streamsBuilderFactoryBeanConfigurer(){
         log.info("Inside streamsBuilderFactoryBeanConfigurer");
-        return factoryBean -> {
-            factoryBean.setStreamsUncaughtExceptionHandler(new StreamsProcessorCustomErrorHandler());
-        };
+        return factoryBean -> factoryBean.setStreamsUncaughtExceptionHandler(
+                new StreamsProcessorCustomErrorHandler()
+        );
     }
 
-
     public DeadLetterPublishingRecoverer recoverer() {
-        return new DeadLetterPublishingRecoverer(kafkaTemplate,
+        return new DeadLetterPublishingRecoverer(
+                kafkaTemplate,
                 (record, ex) -> {
                     log.error("Exception in Deserializing the message : {} and the record is : {}", ex.getMessage(),record,  ex);
                     return new TopicPartition("recovererDLQ", record.partition());
                 });
     }
-
 
     ConsumerRecordRecoverer consumerRecordRecoverer = (record, exception) -> {
         log.error("Exception is : {} Failed Record : {} ", exception, record);
@@ -65,7 +64,7 @@ public class OrdersStreamsConfiguration {
 
     @Bean
     public NewTopic topicBuilder() {
-        return TopicBuilder.name(OrdersTopology.ORDERS)
+        return TopicBuilder.name(Constants.ORDERS_TOPIC)
                 .partitions(2)
                 .replicas(1)
                 .build();
@@ -74,7 +73,7 @@ public class OrdersStreamsConfiguration {
 
     @Bean
     public NewTopic storeTopicBuilder() {
-        return TopicBuilder.name(OrdersTopology.STORES)
+        return TopicBuilder.name(Constants.STORES_TOPIC)
                 .partitions(2)
                 .replicas(1)
                 .build();

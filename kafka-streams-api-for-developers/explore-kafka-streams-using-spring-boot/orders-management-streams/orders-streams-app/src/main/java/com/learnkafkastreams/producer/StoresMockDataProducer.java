@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.learnkafkastreams.domain.Address;
 import com.learnkafkastreams.domain.Store;
-import com.learnkafkastreams.topology.OrdersTopology;
+import com.learnkafkastreams.util.Constants;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -40,7 +40,9 @@ public class StoresMockDataProducer {
                 .forEach(store -> {
                     try {
                         var storeJSON = objectMapper.writeValueAsString(store);
-                        var recordMetaData = publishMessageSync(OrdersTopology.STORES, store.locationId(), storeJSON);
+                        var recordMetaData = publishMessageSync(
+                                Constants.STORES_TOPIC, store.locationId(), storeJSON
+                        );
                         log.info("Published the store message : {} ", recordMetaData);
                     } catch (JsonProcessingException e) {
                         log.error("JsonProcessingException : {} ", e.getMessage(), e);

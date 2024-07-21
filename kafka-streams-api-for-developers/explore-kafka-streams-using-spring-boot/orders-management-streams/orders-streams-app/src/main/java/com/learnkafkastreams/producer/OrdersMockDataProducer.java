@@ -8,6 +8,7 @@ import com.learnkafkastreams.domain.Order;
 import com.learnkafkastreams.domain.OrderLineItem;
 import com.learnkafkastreams.domain.OrderType;
 import com.learnkafkastreams.topology.OrdersTopology;
+import com.learnkafkastreams.util.Constants;
 import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
@@ -27,8 +28,8 @@ public class OrdersMockDataProducer {
                 .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
 
-        publishOrders(objectMapper, buildOrders());
-        //publishBulkOrders(objectMapper);
+        //publishOrders(objectMapper, buildOrders());
+        publishBulkOrders(objectMapper);
 
         /**
          * To test grace period.
@@ -298,7 +299,7 @@ public class OrdersMockDataProducer {
     private static void publishBulkOrders(ObjectMapper objectMapper) throws InterruptedException {
 
         int count = 0;
-        while (count < 100) {
+        while (count < 10) {
             var orders = buildOrders();
             publishOrders(objectMapper, orders);
             sleep(1000);
@@ -312,8 +313,10 @@ public class OrdersMockDataProducer {
                 .forEach(order -> {
                     try {
                         var ordersJSON = objectMapper.writeValueAsString(order);
-                        var recordMetaData = publishMessageSync(OrdersTopology.ORDERS, order.orderId() + "", ordersJSON);
-                        log.info("Published the order message : {} ", recordMetaData);
+                        var recordMetaData = publishMessageSync(
+                                Constants.ORDERS_TOPIC, order.locationId() + "", ordersJSON
+                        );
+                        log.info("Published the order message to test grace: {} ", recordMetaData);
                     } catch (JsonProcessingException e) {
                         log.error("JsonProcessingException : {} ", e.getMessage(), e);
                         throw new RuntimeException(e);
@@ -330,7 +333,9 @@ public class OrdersMockDataProducer {
                 .forEach(order -> {
                     try {
                         var ordersJSON = objectMapper.writeValueAsString(order);
-                        var recordMetaData = publishMessageSync(OrdersTopology.ORDERS, order.orderId() + "", ordersJSON);
+                        var recordMetaData = publishMessageSync(
+                                Constants.ORDERS_TOPIC, order.locationId() + "", ordersJSON
+                        );
                         log.info("Published the order message : {} ", recordMetaData);
                     } catch (JsonProcessingException e) {
                         log.error("JsonProcessingException : {} ", e.getMessage(), e);
@@ -341,6 +346,4 @@ public class OrdersMockDataProducer {
                     }
                 });
     }
-
-
 }
