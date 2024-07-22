@@ -7,6 +7,7 @@ import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.Materialized;
 import org.apache.kafka.streams.kstream.Printed;
+import org.apache.kafka.streams.kstream.Produced;
 
 public class WordsKTableTopology {
 
@@ -22,7 +23,11 @@ public class WordsKTableTopology {
                         (readOnlyKey, value) -> value.toUpperCase()
                 )
                 .toStream()
-                .print(Printed.<String, String>toSysOut().withLabel("words-ktable"));
+                .to(
+                        Constant.TOPIC_WORDS_PRODUCER,
+                        Produced.with(Serdes.String(), Serdes.String())
+                );
+                //.print(Printed.<String, String>toSysOut().withLabel("words-ktable"));
 
         // globalKTable
 /*        streamsBuilder.globalTable(
