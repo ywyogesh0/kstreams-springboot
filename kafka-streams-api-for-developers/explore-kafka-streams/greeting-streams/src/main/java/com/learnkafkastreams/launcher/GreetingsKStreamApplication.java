@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 import static com.learnkafkastreams.utils.Constant.*;
 
 @Slf4j
-public class GreetingsStreamApp {
+public class GreetingsKStreamApplication {
 
     public static void main(String[] args) {
 

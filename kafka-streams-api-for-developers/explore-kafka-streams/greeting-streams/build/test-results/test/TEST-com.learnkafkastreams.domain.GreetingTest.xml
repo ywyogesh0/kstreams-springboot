@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.learnkafkastreams.domain.GreetingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-30T13:44:34" hostname="Yogeshs-MacBook-Air.local" time="0.447">
-  <properties/>
-  <testcase name="greetingsJson()" classname="com.learnkafkastreams.domain.GreetingTest" time="0.447"/>
-  <system-out><![CDATA[{"message":"Good Morning","timeStamp":"2024-04-30T14:44:34.429444"}
-greetingObj : Greeting(message=Good Morning, timeStamp=2024-04-30T14:44:34.429444)
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

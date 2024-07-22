@@ -1,2 +1,154 @@
-D{"message":"Good Morning","timeStamp":"2024-04-30T14:44:34.429444"}
-SgreetingObj : Greeting(message=Good Morning, timeStamp=2024-04-30T14:44:34.429444)
+r08:14:33,500 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+ë08:14:33,501 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/Users/yogeshwalia/IT/github-projects/kstreams-springboot/kafka-streams-api-for-developers/explore-kafka-streams/greeting-streams/build/resources/main/logback.xml]
+i08:14:33,600 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+ï08:14:33,600 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+f08:14:33,607 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [CONSOLE]
+ö08:14:33,638 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+é08:14:33,638 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+ì08:14:33,638 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+s08:14:33,638 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+08:14:33,638 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [CONSOLE] to Logger[ROOT]
+g08:14:33,639 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+ä08:14:33,641 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@5ef5c734 - Registering current configuration as safe fallback point
+
+Ä2024-07-22 08:14:34,472 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Initialized
+é2024-07-22 08:14:34,490 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Restored and ready to run
+^[greetings-source-stream]: K1, Greeting(message=A1B1C1, timeStamp=2024-07-22T08:14:34.514604)
+™2024-07-22 08:14:34,662 [Test worker] INFO  c.l.topology.GreetingsTopology - After Merging, Key K1 & Value Greeting(message=A1B1C1, timeStamp=2024-07-22T08:14:34.514604)
+^[greetings-merged-stream]: K1, Greeting(message=A1B1C1, timeStamp=2024-07-22T08:14:34.514604)
+g[greetings-transformed-stream]: K1, Greeting(message=A1B1C12024, timeStamp=2024-07-22T08:14:34.514604)
+Ü2024-07-22 08:14:34,692 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended RUNNING
+Ü2024-07-22 08:14:34,692 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended running
+Ç2024-07-22 08:14:34,700 [Test worker] INFO  o.a.k.s.p.i.RecordCollectorImpl - topology-test-driver Closing record collector clean
+Å2024-07-22 08:14:34,700 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Closed clean
+Ä2024-07-22 08:14:34,722 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Initialized
+é2024-07-22 08:14:34,723 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Restored and ready to run
+g[greetings-source-stream]: K1, Greeting(message=transient error, timeStamp=2024-07-22T08:14:34.724439)
+≥2024-07-22 08:14:34,725 [Test worker] INFO  c.l.topology.GreetingsTopology - After Merging, Key K1 & Value Greeting(message=transient error, timeStamp=2024-07-22T08:14:34.724439)
+g[greetings-merged-stream]: K1, Greeting(message=transient error, timeStamp=2024-07-22T08:14:34.724439)
+o2024-07-22 08:14:34,730 [Test worker] ERROR c.l.topology.GreetingsTopology - Exception caught: transient error
+1java.lang.IllegalStateException: transient error
+w	at com.learnkafkastreams.topology.GreetingsTopology.lambda$callGreetingKStreamForErrors$4(GreetingsTopology.java:125)
+v	at org.apache.kafka.streams.kstream.internals.KStreamMapValues$KStreamMapProcessor.process(KStreamMapValues.java:41)
+_	at org.apache.kafka.streams.processor.internals.ProcessorNode.process(ProcessorNode.java:159)
+u	at org.apache.kafka.streams.processor.internals.ProcessorContextImpl.forwardInternal(ProcessorContextImpl.java:290)
+m	at org.apache.kafka.streams.processor.internals.ProcessorContextImpl.forward(ProcessorContextImpl.java:269)
+m	at org.apache.kafka.streams.processor.internals.ProcessorContextImpl.forward(ProcessorContextImpl.java:228)
+m	at org.apache.kafka.streams.kstream.internals.PassThrough$PassThroughProcessor.process(PassThrough.java:34)
+_	at org.apache.kafka.streams.processor.internals.ProcessorNode.process(ProcessorNode.java:157)
+u	at org.apache.kafka.streams.processor.internals.ProcessorContextImpl.forwardInternal(ProcessorContextImpl.java:290)
+m	at org.apache.kafka.streams.processor.internals.ProcessorContextImpl.forward(ProcessorContextImpl.java:269)
+m	at org.apache.kafka.streams.processor.internals.ProcessorContextImpl.forward(ProcessorContextImpl.java:228)
+X	at org.apache.kafka.streams.processor.internals.SourceNode.process(SourceNode.java:84)
+d	at org.apache.kafka.streams.processor.internals.StreamTask.lambda$doProcess$1(StreamTask.java:793)
+}	at org.apache.kafka.streams.processor.internals.metrics.StreamsMetricsImpl.maybeMeasureLatency(StreamsMetricsImpl.java:872)
+[	at org.apache.kafka.streams.processor.internals.StreamTask.doProcess(StreamTask.java:793)
+Y	at org.apache.kafka.streams.processor.internals.StreamTask.process(StreamTask.java:724)
+h	at org.apache.kafka.streams.TopologyTestDriver.completeAllProcessableWork(TopologyTestDriver.java:600)
+X	at org.apache.kafka.streams.TopologyTestDriver.pipeRecord(TopologyTestDriver.java:557)
+X	at org.apache.kafka.streams.TopologyTestDriver.pipeRecord(TopologyTestDriver.java:846)
+O	at org.apache.kafka.streams.TestInputTopic.pipeInput(TestInputTopic.java:115)
+O	at org.apache.kafka.streams.TestInputTopic.pipeInput(TestInputTopic.java:137)
+V	at org.apache.kafka.streams.TestInputTopic.pipeKeyValueList(TestInputTopic.java:201)
+k	at com.learnkafkastreams.topology.GreetingsTopologyTest.testTopology_error(GreetingsTopologyTest.java:86)
+S	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+e	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+?	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+[	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:725)
+Z	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+Ñ	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+]	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+k	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
+f	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
+Ö	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+e	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+Ö	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+n	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+u	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+m	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+\	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+[	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+~	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:214)
+j	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+u	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:210)
+l	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
+k	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:66)
+s	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+j	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+s	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+N	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+s	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+j	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+j	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+^	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+?	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+ö	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+s	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+j	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+s	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+N	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+s	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+j	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+j	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+^	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+?	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+ö	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+s	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+j	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+s	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+N	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+s	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+j	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+j	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+^	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+ó	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+v	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+r	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+o	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:108)
+n	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+w	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+}	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+n	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+V	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:96)
+V	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:75)
+µ	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+™	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+Ü	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+h	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+S	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+e	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+m	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+?	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+Y	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+Y	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+i	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+x	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+7	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+W	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+n	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+Y	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+X	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+j	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+Ç	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:133)
+Å	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
+]	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+^	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Ü2024-07-22 08:14:34,741 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended RUNNING
+Ü2024-07-22 08:14:34,741 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended running
+Ç2024-07-22 08:14:34,742 [Test worker] INFO  o.a.k.s.p.i.RecordCollectorImpl - topology-test-driver Closing record collector clean
+Å2024-07-22 08:14:34,742 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Closed clean
+Ä2024-07-22 08:14:34,758 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Initialized
+é2024-07-22 08:14:34,760 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Restored and ready to run
+^[greetings-source-stream]: K1, Greeting(message=A1B1C1, timeStamp=2024-07-22T08:14:34.760923)
+™2024-07-22 08:14:34,768 [Test worker] INFO  c.l.topology.GreetingsTopology - After Merging, Key K1 & Value Greeting(message=A1B1C1, timeStamp=2024-07-22T08:14:34.760923)
+^[greetings-merged-stream]: K1, Greeting(message=A1B1C1, timeStamp=2024-07-22T08:14:34.760923)
+g[greetings-transformed-stream]: K1, Greeting(message=A1B1C12024, timeStamp=2024-07-22T08:14:34.760923)
+^[greetings-source-stream]: K2, Greeting(message=D1E1F1, timeStamp=2024-07-22T08:14:34.760991)
+™2024-07-22 08:14:34,773 [Test worker] INFO  c.l.topology.GreetingsTopology - After Merging, Key K2 & Value Greeting(message=D1E1F1, timeStamp=2024-07-22T08:14:34.760991)
+^[greetings-merged-stream]: K2, Greeting(message=D1E1F1, timeStamp=2024-07-22T08:14:34.760991)
+g[greetings-transformed-stream]: K2, Greeting(message=D1E1F12024, timeStamp=2024-07-22T08:14:34.760991)
+Ü2024-07-22 08:14:34,777 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended RUNNING
+Ü2024-07-22 08:14:34,777 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended running
+Ç2024-07-22 08:14:34,779 [Test worker] INFO  o.a.k.s.p.i.RecordCollectorImpl - topology-test-driver Closing record collector clean
+Å2024-07-22 08:14:34,780 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Closed clean

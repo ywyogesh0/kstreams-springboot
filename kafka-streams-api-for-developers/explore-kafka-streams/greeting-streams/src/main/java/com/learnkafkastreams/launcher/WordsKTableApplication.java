@@ -1,7 +1,6 @@
 package com.learnkafkastreams.launcher;
 
 import com.learnkafkastreams.topology.WordsKTableTopology;
-import com.learnkafkastreams.utils.Constant;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -14,7 +13,7 @@ import java.util.Properties;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class KTableStreamApp {
+public class WordsKTableApplication {
 
 
     public static void main(String[] args) {

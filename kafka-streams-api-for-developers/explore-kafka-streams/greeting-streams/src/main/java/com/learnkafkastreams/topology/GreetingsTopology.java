@@ -120,14 +120,21 @@ public class GreetingsTopology {
     private static KStream<String, Greeting> callGreetingKStreamForErrors(KStream<String, Greeting> mergedGreetingsKStream) {
         return mergedGreetingsKStream
                 .mapValues((readOnlyKey, value) -> {
-                    if ("transient error".equalsIgnoreCase(value.getMessage())) {
-                        throw new IllegalStateException("transient error");
+                    try {
+                        if ("transient error".equalsIgnoreCase(value.getMessage())) {
+                            throw new IllegalStateException("transient error");
+                        }
+                    } catch (IllegalStateException illegalStateException) {
+                        log.error("Exception caught: {}", illegalStateException.getMessage(), illegalStateException);
+                        return null;
                     }
+
                     return Greeting
                             .builder()
                             .message(value.getMessage().concat("2024"))
                             .timeStamp(value.getTimeStamp())
                             .build();
-                });
+                })
+                .filter((s, greeting) -> null != greeting);
     }
 }
