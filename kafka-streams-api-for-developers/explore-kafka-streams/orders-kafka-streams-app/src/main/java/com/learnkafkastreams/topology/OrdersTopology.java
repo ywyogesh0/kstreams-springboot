@@ -107,33 +107,33 @@ public class OrdersTopology {
                                     Produced.with(Serdes.String(), SerdeFactory.generateRevenueSerde())
                             );*/
 
-                            /*aggOrdersCountByStore
+                            aggOrdersCountByStore
                                     .aggregate(
                                             generalOrderKStream,
                                             Constants.GENERAL_ORDERS_COUNT,
                                             storeKTable
-                                    );*/
+                                    );
 
-                            /*aggWindowedOrdersCountByStore
+                            aggWindowedOrdersCountByStore
                                     .aggregate(
                                             generalOrderKStream,
                                             Constants.GENERAL_WINDOWED_ORDERS_COUNT,
                                             storeKTable
-                                    );*/
+                                    );
 
-                            /*aggOrdersRevenueByStore.
+                            aggOrdersRevenueByStore.
                                     aggregate(
                                             generalOrderKStream,
                                             Constants.GENERAL_ORDERS_REVENUE,
                                             storeKTable
-                                    );*/
+                                    );
 
-                            /*aggWindowedOrdersRevenueByStore.
+                            aggWindowedOrdersRevenueByStore.
                                     aggregate(
                                             generalOrderKStream,
                                             Constants.GENERAL_WINDOWED_ORDERS_REVENUE,
                                             storeKTable
-                                    );*/
+                                    );
                         })
                 )
                 .branch(
@@ -151,33 +151,33 @@ public class OrdersTopology {
                                     Produced.with(Serdes.String(), SerdeFactory.generateRevenueSerde())
                             );*/
 
-                            /*aggOrdersCountByStore
+                            aggOrdersCountByStore
                                     .aggregate(
                                             restaurantOrderKStream,
                                             Constants.RESTAURANT_ORDERS_COUNT,
                                             storeKTable
-                                    );*/
+                                    );
 
-                            /*aggWindowedOrdersCountByStore
+                            aggWindowedOrdersCountByStore
                                     .aggregate(
                                             restaurantOrderKStream,
                                             Constants.RESTAURANT_WINDOWED_ORDERS_COUNT,
                                             storeKTable
-                                    );*/
+                                    );
 
-                            /*aggOrdersRevenueByStore.
+                            aggOrdersRevenueByStore.
                                     aggregate(
                                             restaurantOrderKStream,
                                             Constants.RESTAURANT_ORDERS_REVENUE,
                                             storeKTable
-                                    );*/
+                                    );
 
-                            /*aggWindowedOrdersRevenueByStore.
+                            aggWindowedOrdersRevenueByStore.
                                     aggregate(
                                             restaurantOrderKStream,
                                             Constants.RESTAURANT_WIDOWED_ORDERS_REVENUE,
                                             storeKTable
-                                    );*/
+                                    );
                         })
                 );
 

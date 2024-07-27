@@ -11,14 +11,11 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static com.learnkafkastreams.topology.OrdersTopology.ORDERS;
-
 class OrdersTopologyTest {
 
     TopologyTestDriver topologyTestDriver = null;
     TestInputTopic<String, Order> ordersInputTopic = null;
 
-    static String INPUT_TOPIC = ORDERS;
 
     static List<KeyValue<String, Order>> orders(){
 

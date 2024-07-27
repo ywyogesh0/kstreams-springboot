@@ -6,7 +6,6 @@ import com.learnkafkastreams.domain.TotalCountWithAddress;
 import com.learnkafkastreams.serdes.SerdeFactory;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.common.utils.Bytes;
-import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.kstream.*;
 import org.apache.kafka.streams.state.KeyValueStore;
 
@@ -23,7 +22,6 @@ public class AggOrdersCountByStore implements AggWindowedHandler<Order, Store> {
                         Grouped.with(Serdes.String(), SerdeFactory.generateOrderSerde())
                 )
                 .count(
-                        Named.as(stateStore),
                         Materialized
                                 .<String, Long, KeyValueStore<Bytes, byte[]>>as(stateStore)
                                 .withKeySerde(Serdes.String())

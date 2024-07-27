@@ -10,7 +10,6 @@ import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.common.utils.Bytes;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.kstream.*;
-import org.apache.kafka.streams.state.KeyValueStore;
 import org.apache.kafka.streams.state.WindowStore;
 
 import java.time.Duration;
@@ -62,10 +61,12 @@ public class AggWindowedOrdersRevenueByStore implements AggWindowedHandler<Order
         ValueJoiner<TotalRevenue, Store, TotalRevenueWithAddress> valueJoiner = TotalRevenueWithAddress::new;
 
         Joined<String, TotalRevenue, Store> joinedParam = Joined
-                .<String, TotalRevenue, Store>as("orders-revenue-join")
-                .withKeySerde(Serdes.String())
-                .withValueSerde(SerdeFactory.generateTotalRevenueSerde())
-                .withOtherValueSerde(SerdeFactory.generateStoreSerde());
+                .with(
+                        Serdes.String(),
+                        SerdeFactory.generateTotalRevenueSerde(),
+                        SerdeFactory.generateStoreSerde()
+
+                );
 
         KStream<String, TotalRevenueWithAddress> totalRevenueWithAddressKStream = totalRevenueKTable
                 .toStream()

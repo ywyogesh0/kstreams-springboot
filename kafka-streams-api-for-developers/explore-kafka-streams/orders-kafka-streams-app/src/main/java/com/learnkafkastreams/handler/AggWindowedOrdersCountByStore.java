@@ -9,7 +9,6 @@ import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.common.utils.Bytes;
 import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.kstream.*;
-import org.apache.kafka.streams.state.KeyValueStore;
 import org.apache.kafka.streams.state.WindowStore;
 
 import java.time.Duration;
@@ -31,7 +30,6 @@ public class AggWindowedOrdersCountByStore implements AggWindowedHandler<Order, 
                 )
                 .windowedBy(tumblingAggWindow)
                 .count(
-                        Named.as(stateStore),
                         Materialized
                                 .<String, Long, WindowStore<Bytes, byte[]>>as(stateStore)
                                 .withKeySerde(Serdes.String())
@@ -58,10 +56,11 @@ public class AggWindowedOrdersCountByStore implements AggWindowedHandler<Order, 
         ValueJoiner<Long, Store, TotalCountWithAddress> valueJoiner = TotalCountWithAddress::new;
 
         Joined<String, Long, Store> joinedParam = Joined
-                .<String, Long, Store>as("orders-count-join")
-                .withKeySerde(Serdes.String())
-                .withValueSerde(Serdes.Long())
-                .withOtherValueSerde(SerdeFactory.generateStoreSerde());
+                .with(
+                        Serdes.String(),
+                        Serdes.Long(),
+                        SerdeFactory.generateStoreSerde()
+                );
 
         KStream<String, TotalCountWithAddress> totalCountWithAddressKStream = countKTable
                 .toStream()
