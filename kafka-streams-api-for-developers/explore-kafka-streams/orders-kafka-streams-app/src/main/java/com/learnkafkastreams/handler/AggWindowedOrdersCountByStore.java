@@ -20,15 +20,25 @@ public class AggWindowedOrdersCountByStore implements AggWindowedHandler<Order, 
             String stateStore,
             KTable<String, Store> lookupTable
     ) {
+        // tumbling windows
         Duration windowedSize = Duration.ofSeconds(3);
-        TimeWindows tumblingAggWindow = TimeWindows.ofSizeWithNoGrace(windowedSize);
+        TimeWindows timeWindows = TimeWindows.ofSizeWithNoGrace(windowedSize);
+
+        // hopping windows
+        /*Duration windowedSize = Duration.ofSeconds(3);
+        TimeWindows timeWindows = TimeWindows
+                .ofSizeWithNoGrace(windowedSize)
+                .advanceBy(Duration.ofSeconds(1));*/
+
+        /*SlidingWindows timeWindows = SlidingWindows
+                .ofTimeDifferenceWithNoGrace(Duration.ofSeconds(3));*/
 
         KTable<Windowed<String>, Long> countKTable = consumerKStream
                 //.map((key, order) -> KeyValue.pair(order.locationId(), order))
                 .groupByKey(
                         Grouped.with(Serdes.String(), SerdeFactory.generateOrderSerde())
                 )
-                .windowedBy(tumblingAggWindow)
+                .windowedBy(timeWindows)
                 .count(
                         Materialized
                                 .<String, Long, WindowStore<Bytes, byte[]>>as(stateStore)

@@ -51,13 +51,13 @@ class OrdersTopologyTest {
     @Test
     void testTopology_readOnlyKeyValueStore() {
         inputTopic.pipeKeyValueList(
-                orders("store_1234", "2024-05-01T08:51:51")
+                orders("store_1234", "2024-05-01T08:51:52")
+        );
+        inputTopic.pipeKeyValueList(
+                orders("store_1234", "2022-05-01T08:51:53")
         );
         inputTopic.pipeKeyValueList(
                 orders("store_5678", "2022-05-01T08:51:54")
-        );
-        inputTopic.pipeKeyValueList(
-                orders("store_1234", "2022-05-01T08:51:52")
         );
 
         // assert orders count
@@ -105,10 +105,10 @@ class OrdersTopologyTest {
     @Test
     void testTopology_windowedKeyValueStore() {
         inputTopic.pipeKeyValueList(
-                orders("store_1234", "2022-05-01T08:51:51")
+                orders("store_1234", "2022-05-01T08:51:52")
         );
         inputTopic.pipeKeyValueList(
-                orders("store_1234", "2022-05-01T08:51:52")
+                orders("store_1234", "2022-05-01T08:51:53")
         );
         inputTopic.pipeKeyValueList(
                 orders("store_5678", "2022-05-01T08:51:55")
@@ -125,6 +125,15 @@ class OrdersTopologyTest {
 
         assertWindowedOrderCount(generalWindowedOrdersCountStore, OrderType.GENERAL);
         assertWindowedOrderCount(restaurantWindowedOrdersCountStore, OrderType.RESTAURANT);
+
+        // assert orders revenue
+        ReadOnlyWindowStore<String, TotalRevenue> generalWindowedOrdersRevenueStore =
+                topologyTestDriver.getWindowStore(Constants.GENERAL_WINDOWED_ORDERS_REVENUE);
+        ReadOnlyWindowStore<String, TotalRevenue> restaurantWindowedOrdersRevenueStore =
+                topologyTestDriver.getWindowStore(Constants.RESTAURANT_WIDOWED_ORDERS_REVENUE);
+
+        assertWindowedOrderRevenue(generalWindowedOrdersRevenueStore, OrderType.GENERAL);
+        assertWindowedOrderRevenue(restaurantWindowedOrdersRevenueStore, OrderType.RESTAURANT);
     }
 
     private void assertWindowedOrderCount(
@@ -140,11 +149,28 @@ class OrdersTopologyTest {
                 .toList();
 
         assertEquals(2, keyValueList.size());
-        assertWindowedKey(keyValueList.get(0), orderType);
-        assertWindowedKey(keyValueList.get(1), orderType);
+        assertWindowedOrderCount(keyValueList.get(0), orderType);
+        assertWindowedOrderCount(keyValueList.get(1), orderType);
     }
 
-    private static void assertWindowedKey(KeyValue<Windowed<String>, Long> keyValue, OrderType orderType) {
+    private void assertWindowedOrderRevenue(
+            ReadOnlyWindowStore<String, TotalRevenue> readOnlyWindowStore, OrderType orderType
+    ) {
+        KeyValueIterator<Windowed<String>, TotalRevenue> keyValueIterator = readOnlyWindowStore.all();
+        List<KeyValue<Windowed<String>, TotalRevenue>> keyValueList = StreamSupport
+                .stream(
+                        Spliterators
+                                .spliteratorUnknownSize(keyValueIterator, 0),
+                        false
+                )
+                .toList();
+
+        assertEquals(2, keyValueList.size());
+        assertWindowedOrderRevenue(keyValueList.get(0), orderType);
+        assertWindowedOrderRevenue(keyValueList.get(1), orderType);
+    }
+
+    private static void assertWindowedOrderCount(KeyValue<Windowed<String>, Long> keyValue, OrderType orderType) {
         String key = keyValue.key.key();
         Long count = keyValue.value;
         Instant startTime = keyValue.key.window().startTime();
@@ -157,6 +183,41 @@ class OrdersTopologyTest {
         System.out.println("Window endTime: " + endTime);
 
         assertEquals(2, count);
+
+        if ("store_1234".equals(key)) {
+            assertEquals(
+                    LocalDateTime.parse("2022-05-01T08:51:51"),
+                    LocalDateTime.ofInstant(startTime, ZoneId.of("Europe/London"))
+            );
+            assertEquals(
+                    LocalDateTime.parse("2022-05-01T08:51:54"),
+                    LocalDateTime.ofInstant(endTime, ZoneId.of("Europe/London"))
+            );
+        } else {
+            assertEquals(
+                    LocalDateTime.parse("2022-05-01T08:51:54"),
+                    LocalDateTime.ofInstant(startTime, ZoneId.of("Europe/London"))
+            );
+            assertEquals(
+                    LocalDateTime.parse("2022-05-01T08:51:57"),
+                    LocalDateTime.ofInstant(endTime, ZoneId.of("Europe/London"))
+            );
+        }
+    }
+
+    private static void assertWindowedOrderRevenue(KeyValue<Windowed<String>, TotalRevenue> keyValue, OrderType orderType) {
+        String key = keyValue.key.key();
+        TotalRevenue totalRevenue = keyValue.value;
+        Instant startTime = keyValue.key.window().startTime();
+        Instant endTime = keyValue.key.window().endTime();
+
+        System.out.println("Order Type: " + orderType.name());
+        System.out.println("Window Key: " + key);
+        System.out.println("Window value: " + totalRevenue);
+        System.out.println("Window startTime: " + startTime);
+        System.out.println("Window endTime: " + endTime);
+
+        assertEquals(2, totalRevenue.runningOrderCount());
 
         if ("store_1234".equals(key)) {
             assertEquals(

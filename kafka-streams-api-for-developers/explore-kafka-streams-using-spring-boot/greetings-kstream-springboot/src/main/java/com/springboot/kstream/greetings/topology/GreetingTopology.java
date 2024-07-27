@@ -3,6 +3,7 @@ package com.springboot.kstream.greetings.topology;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.springboot.kstream.greetings.domain.Greeting;
 import com.springboot.kstream.greetings.utils.Constants;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.kstream.Consumed;
@@ -14,6 +15,7 @@ import org.springframework.kafka.support.serializer.JsonSerde;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class GreetingTopology {
 
     private final ObjectMapper objectMapper;
@@ -44,8 +46,13 @@ public class GreetingTopology {
         KStream<String, Greeting> greetingsUpperCaseKStream = greetingsConsumerKStream
                 .mapValues(
                         (readOnlyKey, value) -> {
-                            if (value.getMessage().equals("Transient Error")) {
-                                throw new IllegalStateException("Throwing RuntTime Exception...");
+                            try {
+                                if ("transient error".equalsIgnoreCase(value.getMessage())) {
+                                    throw new IllegalStateException("transient error");
+                                }
+                            } catch (IllegalStateException illegalStateException) {
+                                log.error("Exception caught: {}", illegalStateException.getMessage(), illegalStateException);
+                                return null;
                             }
                             return Greeting
                                     .builder()
@@ -53,7 +60,8 @@ public class GreetingTopology {
                                     .timeStamp(value.getTimeStamp())
                                     .build();
                         }
-                );
+                )
+                .filter((s, greeting) -> null != greeting);
 
         // print upper-case kstream
         greetingsUpperCaseKStream

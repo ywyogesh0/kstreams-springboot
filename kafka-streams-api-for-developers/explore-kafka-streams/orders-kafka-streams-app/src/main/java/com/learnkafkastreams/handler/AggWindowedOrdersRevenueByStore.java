@@ -21,8 +21,18 @@ public class AggWindowedOrdersRevenueByStore implements AggWindowedHandler<Order
             String stateStore,
             KTable<String, Store> lookupTable
     ) {
+        // tumbling windows
         Duration windowedSize = Duration.ofSeconds(3);
-        TimeWindows tumblingAggWindow = TimeWindows.ofSizeWithNoGrace(windowedSize);
+        TimeWindows timeWindows = TimeWindows.ofSizeWithNoGrace(windowedSize);
+
+        // hopping windows
+        /*Duration windowedSize = Duration.ofSeconds(3);
+        TimeWindows timeWindows = TimeWindows
+                .ofSizeWithNoGrace(windowedSize)
+                .advanceBy(Duration.ofSeconds(1));*/
+
+        /*SlidingWindows timeWindows = SlidingWindows
+                .ofTimeDifferenceWithNoGrace(Duration.ofSeconds(3));*/
 
         // initializer for TotalRevenue java bean
         Initializer<TotalRevenue> totalRevenueInitializer = TotalRevenue::new;
@@ -39,7 +49,7 @@ public class AggWindowedOrdersRevenueByStore implements AggWindowedHandler<Order
                 .groupByKey(
                         Grouped.with(Serdes.String(), SerdeFactory.generateOrderSerde())
                 )
-                .windowedBy(tumblingAggWindow)
+                .windowedBy(timeWindows)
                 .aggregate(
                         totalRevenueInitializer,
                         totalRevenueAggregator,

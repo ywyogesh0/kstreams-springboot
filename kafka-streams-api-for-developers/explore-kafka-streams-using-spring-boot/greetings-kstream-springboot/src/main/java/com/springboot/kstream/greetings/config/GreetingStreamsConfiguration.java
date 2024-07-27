@@ -7,7 +7,6 @@ import com.springboot.kstream.greetings.exceptionhandler.CustomProcessorExceptio
 import com.springboot.kstream.greetings.utils.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
-import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.streams.StreamsConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
@@ -19,7 +18,6 @@ import org.springframework.kafka.config.StreamsBuilderFactoryBeanConfigurer;
 import org.springframework.kafka.config.TopicBuilder;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.listener.ConsumerRecordRecoverer;
-import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.streams.RecoveringDeserializationExceptionHandler;
 
 import java.util.Map;
@@ -57,7 +55,7 @@ public class GreetingStreamsConfiguration {
         return new KafkaStreamsConfiguration(properties);
     }
 
-/*    @Bean
+    /*@Bean
     public DeadLetterPublishingRecoverer recoverer() {
         log.error("Error: Invoking DeadLetterPublishingRecoverer...");
         return new DeadLetterPublishingRecoverer(
