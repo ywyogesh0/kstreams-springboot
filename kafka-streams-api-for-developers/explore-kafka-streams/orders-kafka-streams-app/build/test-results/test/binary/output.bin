@@ -1,175 +1,175 @@
-r12:28:50,016 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
-ô12:28:50,017 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/Users/yogeshwalia/IT/github-projects/kstreams-springboot/kafka-streams-api-for-developers/explore-kafka-streams/orders-kafka-streams-app/build/resources/main/logback.xml]
-i12:28:50,126 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
-ï12:28:50,127 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-f12:28:50,138 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [CONSOLE]
-ö12:28:50,184 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - This appender no longer admits a layout as a sub-component, set an encoder instead.
-é12:28:50,184 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
-ì12:28:50,184 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
-s12:28:50,185 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
-12:28:50,185 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [CONSOLE] to Logger[ROOT]
-g12:28:50,185 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
-ä12:28:50,187 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@16eccb2e - Registering current configuration as safe fallback point
+r13:34:58,957 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+ô13:34:58,957 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/Users/yogeshwalia/IT/github-projects/kstreams-springboot/kafka-streams-api-for-developers/explore-kafka-streams/orders-kafka-streams-app/build/resources/main/logback.xml]
+i13:34:59,079 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - debug attribute not set
+ï13:34:59,079 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+f13:34:59,092 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [CONSOLE]
+ö13:34:59,132 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+é13:34:59,132 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+ì13:34:59,132 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+s13:34:59,132 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to INFO
+13:34:59,133 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [CONSOLE] to Logger[ROOT]
+g13:34:59,133 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+ä13:34:59,135 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@16eccb2e - Registering current configuration as safe fallback point
 
-∞2024-07-27 12:28:50,859 [Test worker] INFO  o.a.k.s.kstream.internals.KTableImpl - Using grace period of [PT0S] as the suppress duration for node [KTABLE-SUPPRESS-0000000014].
-∞2024-07-27 12:28:50,893 [Test worker] INFO  o.a.k.s.kstream.internals.KTableImpl - Using grace period of [PT0S] as the suppress duration for node [KTABLE-SUPPRESS-0000000055].
-Œ2024-07-27 12:28:51,072 [Test worker] WARN  o.a.k.s.p.internals.StateDirectory - Using an OS temp directory in the state.dir property can cause failures with writing the checkpoint file due to the fact that this directory can be cleared by the OS. Resolved state.dir: [/var/folders/c1/xlmj941902j8x37gjxhfn98r0000gn/T//kafka-streams]
-Ö2024-07-27 12:28:52,499 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store store-details-ktable in regular mode
-Ö2024-07-27 12:28:52,782 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-orders-count in regular mode
-ë2024-07-27 12:28:53,061 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-general-orders-count-store in regular mode
-á2024-07-27 12:28:53,352 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-orders-revenue in regular mode
-ì2024-07-27 12:28:53,630 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-general-orders-revenue-store in regular mode
-à2024-07-27 12:28:53,915 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-orders-count in regular mode
-î2024-07-27 12:28:54,189 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-restaurant-orders-count-store in regular mode
-ä2024-07-27 12:28:54,458 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-orders-revenue in regular mode
-ñ2024-07-27 12:28:54,728 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-restaurant-orders-revenue-store in regular mode
-´2024-07-27 12:28:54,734 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store store-details-ktable did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-store-details-ktable-changelog-0
-´2024-07-27 12:28:54,735 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-general-orders-count-changelog-0
-√2024-07-27 12:28:54,736 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-general-orders-count-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-total-general-orders-count-store-changelog-0
-Ω2024-07-27 12:28:54,736 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-windowed-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-general-windowed-orders-count-changelog-0
-∂2024-07-27 12:28:54,736 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver Initializing to the starting offset for changelog dummy-topology-test-driver-app-id-893274758-KTABLE-SUPPRESS-STATE-STORE-0000000015-changelog-0 of in-memory state store KTABLE-SUPPRESS-STATE-STORE-0000000015
-Ø2024-07-27 12:28:54,738 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-general-orders-revenue-changelog-0
-«2024-07-27 12:28:54,739 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-general-orders-revenue-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-total-general-orders-revenue-store-changelog-0
-¡2024-07-27 12:28:54,740 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-windowed-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-general-windowed-orders-revenue-changelog-0
-±2024-07-27 12:28:54,741 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-restaurant-orders-count-changelog-0
-…2024-07-27 12:28:54,742 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-restaurant-orders-count-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-total-restaurant-orders-count-store-changelog-0
-√2024-07-27 12:28:54,742 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-windowed-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-restaurant-windowed-orders-count-changelog-0
-∂2024-07-27 12:28:54,742 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver Initializing to the starting offset for changelog dummy-topology-test-driver-app-id-893274758-KTABLE-SUPPRESS-STATE-STORE-0000000056-changelog-0 of in-memory state store KTABLE-SUPPRESS-STATE-STORE-0000000056
-µ2024-07-27 12:28:54,743 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-restaurant-orders-revenue-changelog-0
-Õ2024-07-27 12:28:54,743 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-restaurant-orders-revenue-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-total-restaurant-orders-revenue-store-changelog-0
-«2024-07-27 12:28:54,744 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-windowed-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-893274758-restaurant-windowed-orders-revenue-changelog-0
-Ä2024-07-27 12:28:54,745 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Initialized
-é2024-07-27 12:28:54,760 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Restored and ready to run
-u2024-07-27 12:28:54,954 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:52 
-v2024-07-27 12:28:54,954 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:52Z 
-ò2024-07-27 12:28:54,978 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:28:55,002 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-ò2024-07-27 12:28:55,009 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:28:55,009 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+∞2024-07-27 13:34:59,634 [Test worker] INFO  o.a.k.s.kstream.internals.KTableImpl - Using grace period of [PT0S] as the suppress duration for node [KTABLE-SUPPRESS-0000000014].
+∞2024-07-27 13:34:59,668 [Test worker] INFO  o.a.k.s.kstream.internals.KTableImpl - Using grace period of [PT0S] as the suppress duration for node [KTABLE-SUPPRESS-0000000055].
+Œ2024-07-27 13:34:59,943 [Test worker] WARN  o.a.k.s.p.internals.StateDirectory - Using an OS temp directory in the state.dir property can cause failures with writing the checkpoint file due to the fact that this directory can be cleared by the OS. Resolved state.dir: [/var/folders/c1/xlmj941902j8x37gjxhfn98r0000gn/T//kafka-streams]
+Ö2024-07-27 13:35:01,469 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store store-details-ktable in regular mode
+Ö2024-07-27 13:35:01,736 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-orders-count in regular mode
+ë2024-07-27 13:35:02,017 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-general-orders-count-store in regular mode
+á2024-07-27 13:35:02,301 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-orders-revenue in regular mode
+ì2024-07-27 13:35:02,595 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-general-orders-revenue-store in regular mode
+à2024-07-27 13:35:02,878 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-orders-count in regular mode
+î2024-07-27 13:35:03,164 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-restaurant-orders-count-store in regular mode
+ä2024-07-27 13:35:03,445 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-orders-revenue in regular mode
+ñ2024-07-27 13:35:03,720 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-restaurant-orders-revenue-store in regular mode
+´2024-07-27 13:35:03,723 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store store-details-ktable did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-store-details-ktable-changelog-0
+´2024-07-27 13:35:03,724 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-general-orders-count-changelog-0
+√2024-07-27 13:35:03,724 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-general-orders-count-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-total-general-orders-count-store-changelog-0
+Ω2024-07-27 13:35:03,724 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-windowed-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-general-windowed-orders-count-changelog-0
+∂2024-07-27 13:35:03,725 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver Initializing to the starting offset for changelog dummy-topology-test-driver-app-id-961910511-KTABLE-SUPPRESS-STATE-STORE-0000000015-changelog-0 of in-memory state store KTABLE-SUPPRESS-STATE-STORE-0000000015
+Ø2024-07-27 13:35:03,726 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-general-orders-revenue-changelog-0
+«2024-07-27 13:35:03,726 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-general-orders-revenue-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-total-general-orders-revenue-store-changelog-0
+¡2024-07-27 13:35:03,727 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-windowed-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-general-windowed-orders-revenue-changelog-0
+±2024-07-27 13:35:03,728 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-restaurant-orders-count-changelog-0
+…2024-07-27 13:35:03,728 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-restaurant-orders-count-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-total-restaurant-orders-count-store-changelog-0
+√2024-07-27 13:35:03,729 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-windowed-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-restaurant-windowed-orders-count-changelog-0
+∂2024-07-27 13:35:03,729 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver Initializing to the starting offset for changelog dummy-topology-test-driver-app-id-961910511-KTABLE-SUPPRESS-STATE-STORE-0000000056-changelog-0 of in-memory state store KTABLE-SUPPRESS-STATE-STORE-0000000056
+µ2024-07-27 13:35:03,730 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-restaurant-orders-revenue-changelog-0
+Õ2024-07-27 13:35:03,730 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-restaurant-orders-revenue-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-total-restaurant-orders-revenue-store-changelog-0
+«2024-07-27 13:35:03,730 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-windowed-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-961910511-restaurant-windowed-orders-revenue-changelog-0
+Ä2024-07-27 13:35:03,731 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Initialized
+é2024-07-27 13:35:03,745 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Restored and ready to run
+u2024-07-27 13:35:03,867 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:52 
+v2024-07-27 13:35:03,868 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:52Z 
+ò2024-07-27 13:35:03,888 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:03,905 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+ò2024-07-27 13:35:03,910 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:03,910 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
 &[general-orders-count]: store_1234, 1
-ú2024-07-27 12:28:55,281 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-windowed-orders-count.1651391460000 in regular mode
+ú2024-07-27 13:35:04,178 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-windowed-orders-count.1651391460000 in regular mode
 u[general-orders-revenue]: store_1234, TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-û2024-07-27 12:28:55,529 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-windowed-orders-revenue.1651391460000 in regular mode
-±2024-07-27 12:28:55,537 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-2024-07-27 12:28:55,537 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
-}2024-07-27 12:28:55,537 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
-~2024-07-27 12:28:55,550 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
-|2024-07-27 12:28:55,551 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
+û2024-07-27 13:35:04,448 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-windowed-orders-revenue.1651391460000 in regular mode
+±2024-07-27 13:35:04,452 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+2024-07-27 13:35:04,453 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
+}2024-07-27 13:35:04,453 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
+~2024-07-27 13:35:04,464 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
+|2024-07-27 13:35:04,464 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
 ú[general-windowed-orders-revenue]: [store_1234@1651391511000/1651391514000], TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-u2024-07-27 12:28:55,834 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:52 
-v2024-07-27 12:28:55,835 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:52Z 
-ò2024-07-27 12:28:55,838 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:28:55,839 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-ò2024-07-27 12:28:55,853 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:28:55,853 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
+u2024-07-27 13:35:04,782 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:52 
+v2024-07-27 13:35:04,782 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:52Z 
+ò2024-07-27 13:35:04,785 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:04,785 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
+ò2024-07-27 13:35:04,793 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:04,793 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
 )[restaurant-orders-count]: store_1234, 1
-ü2024-07-27 12:28:56,127 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-windowed-orders-count.1651391460000 in regular mode
+ü2024-07-27 13:35:05,082 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-windowed-orders-count.1651391460000 in regular mode
 x[restaurant-orders-revenue]: store_1234, TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-°2024-07-27 12:28:56,397 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-windowed-orders-revenue.1651391460000 in regular mode
-±2024-07-27 12:28:56,403 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-2024-07-27 12:28:56,404 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
-}2024-07-27 12:28:56,404 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
-~2024-07-27 12:28:56,405 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
-|2024-07-27 12:28:56,405 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
+°2024-07-27 13:35:05,366 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-windowed-orders-revenue.1651391460000 in regular mode
+±2024-07-27 13:35:05,371 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
+2024-07-27 13:35:05,372 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
+}2024-07-27 13:35:05,374 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
+~2024-07-27 13:35:05,375 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
+|2024-07-27 13:35:05,375 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
 ü[restaurant-windowed-orders-revenue]: [store_1234@1651391511000/1651391514000], TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-u2024-07-27 12:28:56,783 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:53 
-v2024-07-27 12:28:56,783 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:53Z 
-§2024-07-27 12:28:56,786 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-£2024-07-27 12:28:56,786 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
-§2024-07-27 12:28:56,788 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-£2024-07-27 12:28:56,789 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
+u2024-07-27 13:35:05,780 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:53 
+v2024-07-27 13:35:05,780 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:53Z 
+§2024-07-27 13:35:05,784 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+£2024-07-27 13:35:05,785 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
+§2024-07-27 13:35:05,786 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+£2024-07-27 13:35:05,787 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
 &[general-orders-count]: store_1234, 2
 u[general-orders-revenue]: store_1234, TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
-±2024-07-27 12:28:56,793 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
-2024-07-27 12:28:56,794 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
-}2024-07-27 12:28:56,794 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
-~2024-07-27 12:28:56,794 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
-|2024-07-27 12:28:56,795 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
+±2024-07-27 13:35:05,791 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
+2024-07-27 13:35:05,791 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
+}2024-07-27 13:35:05,791 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
+~2024-07-27 13:35:05,792 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
+|2024-07-27 13:35:05,792 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
 ú[general-windowed-orders-revenue]: [store_1234@1651391511000/1651391514000], TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
-u2024-07-27 12:28:57,186 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:53 
-v2024-07-27 12:28:57,186 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:53Z 
-§2024-07-27 12:28:57,188 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-£2024-07-27 12:28:57,188 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
-§2024-07-27 12:28:57,189 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-£2024-07-27 12:28:57,190 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
+u2024-07-27 13:35:06,178 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:53 
+v2024-07-27 13:35:06,179 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:53Z 
+§2024-07-27 13:35:06,180 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
+£2024-07-27 13:35:06,180 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
+§2024-07-27 13:35:06,182 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
+£2024-07-27 13:35:06,182 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
 )[restaurant-orders-count]: store_1234, 2
 x[restaurant-orders-revenue]: store_1234, TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
-±2024-07-27 12:28:57,193 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
-2024-07-27 12:28:57,194 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
-}2024-07-27 12:28:57,194 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
-~2024-07-27 12:28:57,194 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
-|2024-07-27 12:28:57,195 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
+±2024-07-27 13:35:06,188 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
+2024-07-27 13:35:06,188 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
+}2024-07-27 13:35:06,188 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
+~2024-07-27 13:35:06,189 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
+|2024-07-27 13:35:06,193 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
 ü[restaurant-windowed-orders-revenue]: [store_1234@1651391511000/1651391514000], TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
-u2024-07-27 12:28:57,618 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:55 
-v2024-07-27 12:28:57,619 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:55Z 
-ò2024-07-27 12:28:57,621 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:28:57,621 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
-ò2024-07-27 12:28:57,623 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:28:57,624 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
+u2024-07-27 13:35:06,628 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:55 
+v2024-07-27 13:35:06,629 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:55Z 
+ò2024-07-27 13:35:06,631 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:06,631 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
+ò2024-07-27 13:35:06,633 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:06,633 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
 &[general-orders-count]: store_5678, 1
-d2024-07-27 12:28:57,627 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: 2
-2024-07-27 12:28:57,627 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
-}2024-07-27 12:28:57,628 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
-~2024-07-27 12:28:57,628 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
-|2024-07-27 12:28:57,628 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
+d2024-07-27 13:35:06,636 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: 2
+2024-07-27 13:35:06,636 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
+}2024-07-27 13:35:06,636 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
+~2024-07-27 13:35:06,637 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
+|2024-07-27 13:35:06,637 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
 M[general-windowed-orders-count]: [store_1234@1651391511000/1651391514000], 2
 u[general-orders-revenue]: store_5678, TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
-±2024-07-27 12:28:57,631 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_5678, value: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
-2024-07-27 12:28:57,631 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:54Z
-}2024-07-27 12:28:57,632 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:57Z
-~2024-07-27 12:28:57,632 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:54
-|2024-07-27 12:28:57,632 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:57
+±2024-07-27 13:35:06,639 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_5678, value: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
+2024-07-27 13:35:06,639 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:54Z
+}2024-07-27 13:35:06,640 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:57Z
+~2024-07-27 13:35:06,640 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:54
+|2024-07-27 13:35:06,640 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:57
 ú[general-windowed-orders-revenue]: [store_5678@1651391514000/1651391517000], TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
-u2024-07-27 12:28:58,199 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:55 
-v2024-07-27 12:28:58,199 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:55Z 
-ò2024-07-27 12:28:58,201 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:28:58,202 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
-ò2024-07-27 12:28:58,206 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:28:58,206 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
+u2024-07-27 13:35:07,201 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:55 
+v2024-07-27 13:35:07,201 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:55Z 
+ò2024-07-27 13:35:07,204 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:07,204 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
+ò2024-07-27 13:35:07,208 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:07,208 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
 )[restaurant-orders-count]: store_5678, 1
-d2024-07-27 12:28:58,208 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: 2
-2024-07-27 12:28:58,209 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
-}2024-07-27 12:28:58,209 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
-~2024-07-27 12:28:58,209 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
-|2024-07-27 12:28:58,209 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
+d2024-07-27 13:35:07,211 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: 2
+2024-07-27 13:35:07,211 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:51Z
+}2024-07-27 13:35:07,212 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:54Z
+~2024-07-27 13:35:07,212 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:51
+|2024-07-27 13:35:07,212 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:54
 P[restaurant-windowed-orders-count]: [store_1234@1651391511000/1651391514000], 2
 x[restaurant-orders-revenue]: store_5678, TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
-±2024-07-27 12:28:58,212 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_5678, value: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
-2024-07-27 12:28:58,212 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:54Z
-}2024-07-27 12:28:58,212 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:57Z
-~2024-07-27 12:28:58,212 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:54
-|2024-07-27 12:28:58,213 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:57
+±2024-07-27 13:35:07,214 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_5678, value: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
+2024-07-27 13:35:07,215 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:54Z
+}2024-07-27 13:35:07,215 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:57Z
+~2024-07-27 13:35:07,216 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:54
+|2024-07-27 13:35:07,216 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:57
 ü[restaurant-windowed-orders-revenue]: [store_5678@1651391514000/1651391517000], TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
-u2024-07-27 12:28:58,753 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:56 
-v2024-07-27 12:28:58,753 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:56Z 
-§2024-07-27 12:28:58,755 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
-£2024-07-27 12:28:58,756 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=54.00]
-§2024-07-27 12:28:58,757 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
-£2024-07-27 12:28:58,758 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=54.00]
+u2024-07-27 13:35:07,762 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:56 
+v2024-07-27 13:35:07,763 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:56Z 
+§2024-07-27 13:35:07,765 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
+£2024-07-27 13:35:07,766 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=54.00]
+§2024-07-27 13:35:07,767 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
+£2024-07-27 13:35:07,768 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=54.00]
 &[general-orders-count]: store_5678, 2
 u[general-orders-revenue]: store_5678, TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=54.00]
-±2024-07-27 12:28:58,762 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_5678, value: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=54.00]
-2024-07-27 12:28:58,762 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:54Z
-}2024-07-27 12:28:58,762 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:57Z
-~2024-07-27 12:28:58,763 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:54
-|2024-07-27 12:28:58,763 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:57
+±2024-07-27 13:35:07,772 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_5678, value: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=54.00]
+2024-07-27 13:35:07,772 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:54Z
+}2024-07-27 13:35:07,773 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:57Z
+~2024-07-27 13:35:07,773 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:54
+|2024-07-27 13:35:07,773 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:57
 ú[general-windowed-orders-revenue]: [store_5678@1651391514000/1651391517000], TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=54.00]
-u2024-07-27 12:28:59,271 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:56 
-v2024-07-27 12:28:59,271 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:56Z 
-§2024-07-27 12:28:59,273 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
-£2024-07-27 12:28:59,274 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=30.00]
-§2024-07-27 12:28:59,276 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
-£2024-07-27 12:28:59,277 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=30.00]
+u2024-07-27 13:35:08,268 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:56 
+v2024-07-27 13:35:08,269 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:56Z 
+§2024-07-27 13:35:08,271 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
+£2024-07-27 13:35:08,271 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=30.00]
+§2024-07-27 13:35:08,273 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
+£2024-07-27 13:35:08,273 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=30.00]
 )[restaurant-orders-count]: store_5678, 2
 x[restaurant-orders-revenue]: store_5678, TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=30.00]
-±2024-07-27 12:28:59,281 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_5678, value: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=30.00]
-2024-07-27 12:28:59,282 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:54Z
-}2024-07-27 12:28:59,282 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:57Z
-~2024-07-27 12:28:59,282 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:54
-|2024-07-27 12:28:59,282 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:57
+±2024-07-27 13:35:08,277 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_5678, value: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=30.00]
+2024-07-27 13:35:08,278 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2022-05-01T07:51:54Z
+}2024-07-27 13:35:08,278 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2022-05-01T07:51:57Z
+~2024-07-27 13:35:08,279 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2022-05-01T08:51:54
+|2024-07-27 13:35:08,279 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2022-05-01T08:51:57
 ü[restaurant-windowed-orders-revenue]: [store_5678@1651391514000/1651391517000], TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=30.00]
-™2024-07-27 12:28:59,781 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedWindowStore() should be used to access a TimestampedWindowStore.
-™2024-07-27 12:28:59,783 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedWindowStore() should be used to access a TimestampedWindowStore.
+™2024-07-27 13:35:08,788 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedWindowStore() should be used to access a TimestampedWindowStore.
+™2024-07-27 13:35:08,791 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedWindowStore() should be used to access a TimestampedWindowStore.
 Order Type: GENERAL
 Window Key: store_1234
 Window value: 2
@@ -190,8 +190,8 @@
 Window value: 2
 'Window startTime: 2022-05-01T07:51:54Z
 %Window endTime: 2022-05-01T07:51:57Z
-™2024-07-27 12:28:59,814 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedWindowStore() should be used to access a TimestampedWindowStore.
-™2024-07-27 12:28:59,814 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedWindowStore() should be used to access a TimestampedWindowStore.
+™2024-07-27 13:35:08,826 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedWindowStore() should be used to access a TimestampedWindowStore.
+™2024-07-27 13:35:08,827 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedWindowStore() should be used to access a TimestampedWindowStore.
 Order Type: GENERAL
 Window Key: store_1234
 ]Window value: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
@@ -212,114 +212,114 @@
 ]Window value: TotalRevenue[locationId=store_5678, runningOrderCount=2, runningRevenue=30.00]
 'Window startTime: 2022-05-01T07:51:54Z
 %Window endTime: 2022-05-01T07:51:57Z
-Ü2024-07-27 12:28:59,830 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended RUNNING
-Ü2024-07-27 12:28:59,830 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended running
-¢2024-07-27 12:28:59,959 [Test worker] WARN  o.a.k.s.state.internals.RocksDBStore - Closing 1 open iterators for store general-windowed-orders-count.1651391460000
-§2024-07-27 12:28:59,963 [Test worker] WARN  o.a.k.s.state.internals.RocksDBStore - Closing 1 open iterators for store general-windowed-orders-revenue.1651391460000
-•2024-07-27 12:28:59,966 [Test worker] WARN  o.a.k.s.state.internals.RocksDBStore - Closing 1 open iterators for store restaurant-windowed-orders-count.1651391460000
-ß2024-07-27 12:28:59,969 [Test worker] WARN  o.a.k.s.state.internals.RocksDBStore - Closing 1 open iterators for store restaurant-windowed-orders-revenue.1651391460000
-Ç2024-07-27 12:28:59,970 [Test worker] INFO  o.a.k.s.p.i.RecordCollectorImpl - topology-test-driver Closing record collector clean
-Å2024-07-27 12:28:59,970 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Closed clean
-™2024-07-27 12:28:59,972 [Test worker] INFO  o.a.k.s.p.internals.StateDirectory - stream-thread [Test worker] Deleting task directory 0_0 for 0_0 as user calling cleanup.
-∞2024-07-27 12:29:00,030 [Test worker] INFO  o.a.k.s.kstream.internals.KTableImpl - Using grace period of [PT0S] as the suppress duration for node [KTABLE-SUPPRESS-0000000014].
-∞2024-07-27 12:29:00,042 [Test worker] INFO  o.a.k.s.kstream.internals.KTableImpl - Using grace period of [PT0S] as the suppress duration for node [KTABLE-SUPPRESS-0000000055].
-Œ2024-07-27 12:29:00,063 [Test worker] WARN  o.a.k.s.p.internals.StateDirectory - Using an OS temp directory in the state.dir property can cause failures with writing the checkpoint file due to the fact that this directory can be cleared by the OS. Resolved state.dir: [/var/folders/c1/xlmj941902j8x37gjxhfn98r0000gn/T//kafka-streams]
-Ö2024-07-27 12:29:00,351 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store store-details-ktable in regular mode
-Ö2024-07-27 12:29:00,613 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-orders-count in regular mode
-ë2024-07-27 12:29:00,879 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-general-orders-count-store in regular mode
-á2024-07-27 12:29:01,150 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-orders-revenue in regular mode
-ì2024-07-27 12:29:01,428 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-general-orders-revenue-store in regular mode
-à2024-07-27 12:29:01,705 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-orders-count in regular mode
-î2024-07-27 12:29:01,980 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-restaurant-orders-count-store in regular mode
-ä2024-07-27 12:29:02,260 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-orders-revenue in regular mode
-ñ2024-07-27 12:29:02,536 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-restaurant-orders-revenue-store in regular mode
-≠2024-07-27 12:29:02,541 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store store-details-ktable did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-store-details-ktable-changelog-0
-≠2024-07-27 12:29:02,541 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-general-orders-count-changelog-0
-≈2024-07-27 12:29:02,541 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-general-orders-count-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-total-general-orders-count-store-changelog-0
-ø2024-07-27 12:29:02,541 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-windowed-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-general-windowed-orders-count-changelog-0
-∏2024-07-27 12:29:02,541 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver Initializing to the starting offset for changelog dummy-topology-test-driver-app-id--1437120269-KTABLE-SUPPRESS-STATE-STORE-0000000015-changelog-0 of in-memory state store KTABLE-SUPPRESS-STATE-STORE-0000000015
-±2024-07-27 12:29:02,542 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-general-orders-revenue-changelog-0
-…2024-07-27 12:29:02,542 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-general-orders-revenue-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-total-general-orders-revenue-store-changelog-0
-√2024-07-27 12:29:02,542 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-windowed-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-general-windowed-orders-revenue-changelog-0
-≥2024-07-27 12:29:02,542 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-restaurant-orders-count-changelog-0
-À2024-07-27 12:29:02,542 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-restaurant-orders-count-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-total-restaurant-orders-count-store-changelog-0
-≈2024-07-27 12:29:02,542 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-windowed-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-restaurant-windowed-orders-count-changelog-0
-∏2024-07-27 12:29:02,543 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver Initializing to the starting offset for changelog dummy-topology-test-driver-app-id--1437120269-KTABLE-SUPPRESS-STATE-STORE-0000000056-changelog-0 of in-memory state store KTABLE-SUPPRESS-STATE-STORE-0000000056
-∑2024-07-27 12:29:02,543 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-restaurant-orders-revenue-changelog-0
-œ2024-07-27 12:29:02,543 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-restaurant-orders-revenue-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-total-restaurant-orders-revenue-store-changelog-0
-…2024-07-27 12:29:02,543 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-windowed-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id--1437120269-restaurant-windowed-orders-revenue-changelog-0
-Ä2024-07-27 12:29:02,543 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Initialized
-é2024-07-27 12:29:02,544 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Restored and ready to run
-u2024-07-27 12:29:02,560 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2024-05-01T08:51:52 
-v2024-07-27 12:29:02,561 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2024-05-01T07:51:52Z 
-ò2024-07-27 12:29:02,562 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:29:02,562 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-ò2024-07-27 12:29:02,568 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:29:02,569 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+Ü2024-07-27 13:35:08,839 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended RUNNING
+Ü2024-07-27 13:35:08,839 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended running
+¢2024-07-27 13:35:08,992 [Test worker] WARN  o.a.k.s.state.internals.RocksDBStore - Closing 1 open iterators for store general-windowed-orders-count.1651391460000
+§2024-07-27 13:35:08,994 [Test worker] WARN  o.a.k.s.state.internals.RocksDBStore - Closing 1 open iterators for store general-windowed-orders-revenue.1651391460000
+•2024-07-27 13:35:08,996 [Test worker] WARN  o.a.k.s.state.internals.RocksDBStore - Closing 1 open iterators for store restaurant-windowed-orders-count.1651391460000
+ß2024-07-27 13:35:08,998 [Test worker] WARN  o.a.k.s.state.internals.RocksDBStore - Closing 1 open iterators for store restaurant-windowed-orders-revenue.1651391460000
+Ç2024-07-27 13:35:09,001 [Test worker] INFO  o.a.k.s.p.i.RecordCollectorImpl - topology-test-driver Closing record collector clean
+Å2024-07-27 13:35:09,001 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Closed clean
+™2024-07-27 13:35:09,004 [Test worker] INFO  o.a.k.s.p.internals.StateDirectory - stream-thread [Test worker] Deleting task directory 0_0 for 0_0 as user calling cleanup.
+∞2024-07-27 13:35:09,044 [Test worker] INFO  o.a.k.s.kstream.internals.KTableImpl - Using grace period of [PT0S] as the suppress duration for node [KTABLE-SUPPRESS-0000000014].
+∞2024-07-27 13:35:09,051 [Test worker] INFO  o.a.k.s.kstream.internals.KTableImpl - Using grace period of [PT0S] as the suppress duration for node [KTABLE-SUPPRESS-0000000055].
+Œ2024-07-27 13:35:09,058 [Test worker] WARN  o.a.k.s.p.internals.StateDirectory - Using an OS temp directory in the state.dir property can cause failures with writing the checkpoint file due to the fact that this directory can be cleared by the OS. Resolved state.dir: [/var/folders/c1/xlmj941902j8x37gjxhfn98r0000gn/T//kafka-streams]
+Ö2024-07-27 13:35:09,337 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store store-details-ktable in regular mode
+Ö2024-07-27 13:35:09,604 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-orders-count in regular mode
+ë2024-07-27 13:35:09,872 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-general-orders-count-store in regular mode
+á2024-07-27 13:35:10,148 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-orders-revenue in regular mode
+ì2024-07-27 13:35:10,430 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-general-orders-revenue-store in regular mode
+à2024-07-27 13:35:10,703 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-orders-count in regular mode
+î2024-07-27 13:35:10,979 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-restaurant-orders-count-store in regular mode
+ä2024-07-27 13:35:11,248 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-orders-revenue in regular mode
+ñ2024-07-27 13:35:11,538 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store total-restaurant-orders-revenue-store in regular mode
+¨2024-07-27 13:35:11,543 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store store-details-ktable did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-store-details-ktable-changelog-0
+¨2024-07-27 13:35:11,543 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-general-orders-count-changelog-0
+ƒ2024-07-27 13:35:11,543 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-general-orders-count-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-total-general-orders-count-store-changelog-0
+æ2024-07-27 13:35:11,543 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-windowed-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-general-windowed-orders-count-changelog-0
+∑2024-07-27 13:35:11,543 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver Initializing to the starting offset for changelog dummy-topology-test-driver-app-id-1662087641-KTABLE-SUPPRESS-STATE-STORE-0000000015-changelog-0 of in-memory state store KTABLE-SUPPRESS-STATE-STORE-0000000015
+∞2024-07-27 13:35:11,544 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-general-orders-revenue-changelog-0
+»2024-07-27 13:35:11,544 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-general-orders-revenue-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-total-general-orders-revenue-store-changelog-0
+¬2024-07-27 13:35:11,544 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store general-windowed-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-general-windowed-orders-revenue-changelog-0
+≤2024-07-27 13:35:11,545 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-restaurant-orders-count-changelog-0
+ 2024-07-27 13:35:11,545 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-restaurant-orders-count-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-total-restaurant-orders-count-store-changelog-0
+ƒ2024-07-27 13:35:11,545 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-windowed-orders-count did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-restaurant-windowed-orders-count-changelog-0
+∑2024-07-27 13:35:11,546 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver Initializing to the starting offset for changelog dummy-topology-test-driver-app-id-1662087641-KTABLE-SUPPRESS-STATE-STORE-0000000056-changelog-0 of in-memory state store KTABLE-SUPPRESS-STATE-STORE-0000000056
+∂2024-07-27 13:35:11,546 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-restaurant-orders-revenue-changelog-0
+Œ2024-07-27 13:35:11,546 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store total-restaurant-orders-revenue-store did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-total-restaurant-orders-revenue-store-changelog-0
+»2024-07-27 13:35:11,546 [Test worker] INFO  o.a.k.s.p.i.ProcessorStateManager - topology-test-driver State store restaurant-windowed-orders-revenue did not find checkpoint offset, hence would default to the starting offset at changelog dummy-topology-test-driver-app-id-1662087641-restaurant-windowed-orders-revenue-changelog-0
+Ä2024-07-27 13:35:11,547 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Initialized
+é2024-07-27 13:35:11,548 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Restored and ready to run
+u2024-07-27 13:35:11,564 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2024-05-01T08:51:52 
+v2024-07-27 13:35:11,565 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2024-05-01T07:51:52Z 
+ò2024-07-27 13:35:11,569 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:11,569 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+ò2024-07-27 13:35:11,573 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:11,573 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
 &[general-orders-count]: store_1234, 1
-ú2024-07-27 12:29:02,830 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-windowed-orders-count.1714549860000 in regular mode
+ú2024-07-27 13:35:11,812 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-windowed-orders-count.1714549860000 in regular mode
 u[general-orders-revenue]: store_1234, TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-û2024-07-27 12:29:03,094 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-windowed-orders-revenue.1714549860000 in regular mode
-±2024-07-27 12:29:03,097 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-2024-07-27 12:29:03,098 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2024-05-01T07:51:51Z
-}2024-07-27 12:29:03,098 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2024-05-01T07:51:54Z
-~2024-07-27 12:29:03,099 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2024-05-01T08:51:51
-|2024-07-27 12:29:03,099 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2024-05-01T08:51:54
+û2024-07-27 13:35:12,096 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store general-windowed-orders-revenue.1714549860000 in regular mode
+±2024-07-27 13:35:12,101 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+2024-07-27 13:35:12,101 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2024-05-01T07:51:51Z
+}2024-07-27 13:35:12,102 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2024-05-01T07:51:54Z
+~2024-07-27 13:35:12,103 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2024-05-01T08:51:51
+|2024-07-27 13:35:12,104 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2024-05-01T08:51:54
 ú[general-windowed-orders-revenue]: [store_1234@1714549911000/1714549914000], TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-u2024-07-27 12:29:03,360 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2024-05-01T08:51:52 
-v2024-07-27 12:29:03,360 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2024-05-01T07:51:52Z 
-ò2024-07-27 12:29:03,362 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:29:03,363 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-ò2024-07-27 12:29:03,368 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:29:03,369 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
+u2024-07-27 13:35:12,346 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2024-05-01T08:51:52 
+v2024-07-27 13:35:12,346 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2024-05-01T07:51:52Z 
+ò2024-07-27 13:35:12,347 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:12,347 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
+ò2024-07-27 13:35:12,351 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:12,352 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
 )[restaurant-orders-count]: store_1234, 1
-ü2024-07-27 12:29:03,651 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-windowed-orders-count.1714549860000 in regular mode
+ü2024-07-27 13:35:12,630 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-windowed-orders-count.1714549860000 in regular mode
 x[restaurant-orders-revenue]: store_1234, TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-°2024-07-27 12:29:03,939 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-windowed-orders-revenue.1714549860000 in regular mode
-±2024-07-27 12:29:03,944 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-2024-07-27 12:29:03,944 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2024-05-01T07:51:51Z
-}2024-07-27 12:29:03,945 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2024-05-01T07:51:54Z
-~2024-07-27 12:29:03,945 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2024-05-01T08:51:51
-|2024-07-27 12:29:03,946 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2024-05-01T08:51:54
+°2024-07-27 13:35:12,895 [Test worker] INFO  o.a.k.s.s.i.RocksDBTimestampedStore - Opening store restaurant-windowed-orders-revenue.1714549860000 in regular mode
+±2024-07-27 13:35:12,898 [Test worker] INFO  c.l.util.OrderHelperUtility - key: store_1234, value: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
+2024-07-27 13:35:12,899 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in GMT: 2024-05-01T07:51:51Z
+}2024-07-27 13:35:12,902 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in GMT: 2024-05-01T07:51:54Z
+~2024-07-27 13:35:12,905 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key start time in BST: 2024-05-01T08:51:51
+|2024-07-27 13:35:12,905 [Test worker] INFO  c.l.util.OrderHelperUtility - windowed key end time in BST: 2024-05-01T08:51:54
 ü[restaurant-windowed-orders-revenue]: [store_1234@1714549911000/1714549914000], TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-u2024-07-27 12:29:04,324 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:53 
-v2024-07-27 12:29:04,324 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:53Z 
-í2024-07-27 12:29:04,325 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[2] timestamp=[1651391513000] window=[1651391511000,1651391514000) expiration=[1714549912000] streamTime=[1714549912000]
-§2024-07-27 12:29:04,326 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
-£2024-07-27 12:29:04,326 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
-í2024-07-27 12:29:04,327 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[2] timestamp=[1651391513000] window=[1651391511000,1651391514000) expiration=[1714549912000] streamTime=[1714549912000]
+u2024-07-27 13:35:13,275 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:53 
+v2024-07-27 13:35:13,275 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:53Z 
+í2024-07-27 13:35:13,276 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[2] timestamp=[1651391513000] window=[1651391511000,1651391514000) expiration=[1714549912000] streamTime=[1714549912000]
+§2024-07-27 13:35:13,276 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=27.00]
+£2024-07-27 13:35:13,277 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
+í2024-07-27 13:35:13,277 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[2] timestamp=[1651391513000] window=[1651391511000,1651391514000) expiration=[1714549912000] streamTime=[1714549912000]
 &[general-orders-count]: store_1234, 2
 u[general-orders-revenue]: store_1234, TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=54.00]
-u2024-07-27 12:29:04,520 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:53 
-v2024-07-27 12:29:04,521 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:53Z 
-í2024-07-27 12:29:04,522 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[3] timestamp=[1651391513000] window=[1651391511000,1651391514000) expiration=[1714549912000] streamTime=[1714549912000]
-§2024-07-27 12:29:04,523 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
-£2024-07-27 12:29:04,524 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
-í2024-07-27 12:29:04,525 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[3] timestamp=[1651391513000] window=[1651391511000,1651391514000) expiration=[1714549912000] streamTime=[1714549912000]
+u2024-07-27 13:35:13,475 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:53 
+v2024-07-27 13:35:13,475 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:53Z 
+í2024-07-27 13:35:13,476 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[3] timestamp=[1651391513000] window=[1651391511000,1651391514000) expiration=[1714549912000] streamTime=[1714549912000]
+§2024-07-27 13:35:13,478 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=store_1234, runningOrderCount=1, runningRevenue=15.00]
+£2024-07-27 13:35:13,478 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
+í2024-07-27 13:35:13,479 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[3] timestamp=[1651391513000] window=[1651391511000,1651391514000) expiration=[1714549912000] streamTime=[1714549912000]
 )[restaurant-orders-count]: store_1234, 2
 x[restaurant-orders-revenue]: store_1234, TotalRevenue[locationId=store_1234, runningOrderCount=2, runningRevenue=30.00]
-u2024-07-27 12:29:04,721 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:54 
-v2024-07-27 12:29:04,722 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:54Z 
-í2024-07-27 12:29:04,723 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[4] timestamp=[1651391514000] window=[1651391514000,1651391517000) expiration=[1714549912000] streamTime=[1714549912000]
-ò2024-07-27 12:29:04,724 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:29:04,725 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
-í2024-07-27 12:29:04,726 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[4] timestamp=[1651391514000] window=[1651391514000,1651391517000) expiration=[1714549912000] streamTime=[1714549912000]
+u2024-07-27 13:35:13,670 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:54 
+v2024-07-27 13:35:13,671 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:54Z 
+í2024-07-27 13:35:13,672 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[4] timestamp=[1651391514000] window=[1651391514000,1651391517000) expiration=[1714549912000] streamTime=[1714549912000]
+ò2024-07-27 13:35:13,673 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:13,673 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
+í2024-07-27 13:35:13,674 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[4] timestamp=[1651391514000] window=[1651391514000,1651391517000) expiration=[1714549912000] streamTime=[1714549912000]
 &[general-orders-count]: store_5678, 1
 u[general-orders-revenue]: store_5678, TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=27.00]
-u2024-07-27 12:29:04,924 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:54 
-v2024-07-27 12:29:04,924 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:54Z 
-í2024-07-27 12:29:04,926 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[5] timestamp=[1651391514000] window=[1651391514000,1651391517000) expiration=[1714549912000] streamTime=[1714549912000]
-ò2024-07-27 12:29:04,927 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
-£2024-07-27 12:29:04,928 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
-í2024-07-27 12:29:04,930 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[5] timestamp=[1651391514000] window=[1651391514000,1651391517000) expiration=[1714549912000] streamTime=[1714549912000]
+u2024-07-27 13:35:13,878 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInBST : 2022-05-01T08:51:54 
+v2024-07-27 13:35:13,878 [Test worker] INFO  c.l.util.OrderTimestampExtractor - timeStampInUTC : 2022-05-01T07:51:54Z 
+í2024-07-27 13:35:13,879 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[5] timestamp=[1651391514000] window=[1651391514000,1651391517000) expiration=[1714549912000] streamTime=[1714549912000]
+ò2024-07-27 13:35:13,879 [Test worker] INFO  c.l.domain.TotalRevenue - Before Update: TotalRevenue[locationId=, runningOrderCount=0, runningRevenue=0.0]
+£2024-07-27 13:35:13,880 [Test worker] INFO  c.l.domain.TotalRevenue - After Update: TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
+í2024-07-27 13:35:13,880 [Test worker] WARN  o.a.k.s.k.i.KStreamWindowAggregate - Skipping record for expired window. topic=[orders] partition=[0] offset=[5] timestamp=[1651391514000] window=[1651391514000,1651391517000) expiration=[1714549912000] streamTime=[1714549912000]
 )[restaurant-orders-count]: store_5678, 1
 x[restaurant-orders-revenue]: store_5678, TotalRevenue[locationId=store_5678, runningOrderCount=1, runningRevenue=15.00]
-Æ2024-07-27 12:29:05,120 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedKeyValueStore() should be used to access a TimestampedKeyValueStore.
-Æ2024-07-27 12:29:05,124 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedKeyValueStore() should be used to access a TimestampedKeyValueStore.
-Æ2024-07-27 12:29:05,125 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedKeyValueStore() should be used to access a TimestampedKeyValueStore.
-Æ2024-07-27 12:29:05,125 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedKeyValueStore() should be used to access a TimestampedKeyValueStore.
-Ü2024-07-27 12:29:05,128 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended RUNNING
-Ü2024-07-27 12:29:05,128 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended running
-Ç2024-07-27 12:29:05,295 [Test worker] INFO  o.a.k.s.p.i.RecordCollectorImpl - topology-test-driver Closing record collector clean
-Å2024-07-27 12:29:05,295 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Closed clean
-™2024-07-27 12:29:05,296 [Test worker] INFO  o.a.k.s.p.internals.StateDirectory - stream-thread [Test worker] Deleting task directory 0_0 for 0_0 as user calling cleanup.
+Æ2024-07-27 13:35:14,087 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedKeyValueStore() should be used to access a TimestampedKeyValueStore.
+Æ2024-07-27 13:35:14,089 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedKeyValueStore() should be used to access a TimestampedKeyValueStore.
+Æ2024-07-27 13:35:14,090 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedKeyValueStore() should be used to access a TimestampedKeyValueStore.
+Æ2024-07-27 13:35:14,090 [Test worker] INFO  o.a.kafka.streams.TopologyTestDriver - Method #getTimestampedKeyValueStore() should be used to access a TimestampedKeyValueStore.
+Ü2024-07-27 13:35:14,092 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended RUNNING
+Ü2024-07-27 13:35:14,093 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Suspended running
+Ç2024-07-27 13:35:14,244 [Test worker] INFO  o.a.k.s.p.i.RecordCollectorImpl - topology-test-driver Closing record collector clean
+Å2024-07-27 13:35:14,244 [Test worker] INFO  o.a.k.s.p.internals.StreamTask - stream-thread [Test worker] task [0_0] Closed clean
+™2024-07-27 13:35:14,245 [Test worker] INFO  o.a.k.s.p.internals.StateDirectory - stream-thread [Test worker] Deleting task directory 0_0 for 0_0 as user calling cleanup.

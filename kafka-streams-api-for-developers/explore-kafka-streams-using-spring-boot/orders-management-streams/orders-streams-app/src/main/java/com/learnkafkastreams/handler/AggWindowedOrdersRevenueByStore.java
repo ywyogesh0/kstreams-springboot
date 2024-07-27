@@ -58,13 +58,14 @@ public class AggWindowedOrdersRevenueByStore implements AggHandler<Order, Store>
                 );
 
         // join between kStream-kTable
-        /*ValueJoiner<TotalRevenue, Store, TotalRevenueWithAddress> valueJoiner = TotalRevenueWithAddress::new;
+        ValueJoiner<TotalRevenue, Store, TotalRevenueWithAddress> valueJoiner = TotalRevenueWithAddress::new;
 
         Joined<String, TotalRevenue, Store> joinedParam = Joined
-                .<String, TotalRevenue, Store>as("windowed-orders-revenue-join")
-                .withKeySerde(Serdes.String())
-                .withValueSerde(SerdeFactory.generateTotalRevenueSerde())
-                .withOtherValueSerde(SerdeFactory.generateStoreSerde());
+                .with(
+                        Serdes.String(),
+                        SerdeFactory.generateTotalRevenueSerde(),
+                        SerdeFactory.generateStoreSerde()
+                );
 
         KStream<String, TotalRevenueWithAddress> totalRevenueWithAddressKStream = totalRevenueKTable
                 .toStream()
@@ -76,6 +77,6 @@ public class AggWindowedOrdersRevenueByStore implements AggHandler<Order, Store>
                 );
 
         totalRevenueWithAddressKStream
-                .print(Printed.<String, TotalRevenueWithAddress>toSysOut().withLabel("total-" + stateStore + "-stream"));*/
+                .print(Printed.<String, TotalRevenueWithAddress>toSysOut().withLabel("total-" + stateStore + "-stream"));
     }
 }

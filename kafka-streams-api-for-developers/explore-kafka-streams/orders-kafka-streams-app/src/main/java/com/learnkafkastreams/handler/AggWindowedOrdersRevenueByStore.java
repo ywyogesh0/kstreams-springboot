@@ -75,7 +75,6 @@ public class AggWindowedOrdersRevenueByStore implements AggWindowedHandler<Order
                         Serdes.String(),
                         SerdeFactory.generateTotalRevenueSerde(),
                         SerdeFactory.generateStoreSerde()
-
                 );
 
         KStream<String, TotalRevenueWithAddress> totalRevenueWithAddressKStream = totalRevenueKTable

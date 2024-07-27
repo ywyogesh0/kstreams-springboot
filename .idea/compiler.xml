@@ -14,7 +14,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dynamic-consumer-state-controller" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -22,6 +21,7 @@
       <module name="com.learnkafkastreams.explore-kafka-streams.advanced-streams.test" target="17" />
       <module name="com.learnkafkastreams.explore-kafka-streams.greeting-streams" target="17" />
       <module name="com.learnkafkastreams.explore-kafka-streams.orders-kafka-streams-app" target="17" />
+      <module name="dynamic-consumer-state-controller" target="17" />
       <module name="explore-kafka-streams-using-spring-boot.app" target="17" />
       <module name="explore-kafka-streams-using-spring-boot.app.main" target="17" />
       <module name="explore-kafka-streams-using-spring-boot.app.test" target="17" />

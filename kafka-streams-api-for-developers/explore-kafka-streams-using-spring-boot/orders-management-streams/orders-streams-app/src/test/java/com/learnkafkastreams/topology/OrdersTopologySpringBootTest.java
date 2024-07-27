@@ -8,6 +8,7 @@ import com.learnkafkastreams.serdes.SerdeFactory;
 import com.learnkafkastreams.util.Constants;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KeyValue;
+import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.TestInputTopic;
 import org.apache.kafka.streams.TopologyTestDriver;
 import org.apache.kafka.streams.kstream.Windowed;
@@ -17,6 +18,8 @@ import org.apache.kafka.streams.state.ReadOnlyWindowStore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -28,14 +31,20 @@ import java.util.stream.StreamSupport;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class OrdersTopologyTest {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@DirtiesContext
+class OrdersTopologySpringBootTest {
 
     TopologyTestDriver topologyTestDriver;
     private TestInputTopic<String, Order> inputTopic;
 
     @BeforeEach
     void setUp() {
-        topologyTestDriver = new TopologyTestDriver(OrdersTopology.buildTopology());
+        OrdersTopology ordersTopology = new OrdersTopology();
+        StreamsBuilder streamsBuilder = new StreamsBuilder();
+        ordersTopology.process(streamsBuilder);
+
+        topologyTestDriver = new TopologyTestDriver(streamsBuilder.build());
         inputTopic = topologyTestDriver.createInputTopic(
                 Constants.ORDERS_TOPIC,
                 Serdes.String().serializer(),

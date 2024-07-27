@@ -1,0 +1,21 @@
+spring:
+  main:
+      allow-bean-definition-overriding: true
+  application:
+    name: orders-kafka-streams
+  kafka:
+    streams:
+      bootstrap-servers: localhost:9092
+      application-id: orders-kafka-streams-test
+    properties:
+      default:
+        key:
+          serde: 'org.apache.kafka.common.serialization.Serdes$StringSerde'
+        value:
+          serde: 'org.apache.kafka.common.serialization.Serdes$StringSerde'
+        deserialization:
+          exception:
+            handler: 'org.apache.kafka.streams.errors.LogAndContinueExceptionHandler'
+        serialization:
+          exception:
+            handler: 'com.learnkafkastreams.exceptionhandler.StreamsSerializationExceptionHandler'

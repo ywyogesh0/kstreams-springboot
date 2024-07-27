@@ -54,13 +54,14 @@ public class AggWindowedOrdersCountByStore implements AggHandler<Order, Store> {
                 );
 
         // join between kStream-kTable
-        /*ValueJoiner<Long, Store, TotalCountWithAddress> valueJoiner = TotalCountWithAddress::new;
+        ValueJoiner<Long, Store, TotalCountWithAddress> valueJoiner = TotalCountWithAddress::new;
 
         Joined<String, Long, Store> joinedParam = Joined
-                .<String, Long, Store>as("windowed-orders-count-join")
-                .withKeySerde(Serdes.String())
-                .withValueSerde(Serdes.Long())
-                .withOtherValueSerde(SerdeFactory.generateStoreSerde());
+                .with(
+                        Serdes.String(),
+                        Serdes.Long(),
+                        SerdeFactory.generateStoreSerde()
+                );
 
         KStream<String, TotalCountWithAddress> totalCountWithAddressKStream = countKTable
                 .toStream()
@@ -74,6 +75,6 @@ public class AggWindowedOrdersCountByStore implements AggHandler<Order, Store> {
         totalCountWithAddressKStream
                 .print(
                         Printed.<String, TotalCountWithAddress>toSysOut().withLabel("total-" + stateStore + "-stream")
-                );*/
+                );
     }
 }
