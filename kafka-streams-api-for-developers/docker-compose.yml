@@ -41,11 +41,11 @@ services:
       CONFLUENT_METRICS_ENABLE: 'true'
       CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
 
-  kafdrop:
-    image: obsidiandynamics/kafdrop:3.31.0-SNAPSHOT
-    depends_on:
-      - broker
-    ports:
-      - 19000:9000
-    environment:
-      KAFKA_BROKERCONNECT: broker:29092
+  #kafdrop:
+    #image: obsidiandynamics/kafdrop:3.31.0-SNAPSHOT
+    #depends_on:
+      #- broker
+    #ports:
+      #- 19000:9000
+    #environment:
+      #KAFKA_BROKERCONNECT: broker:29092

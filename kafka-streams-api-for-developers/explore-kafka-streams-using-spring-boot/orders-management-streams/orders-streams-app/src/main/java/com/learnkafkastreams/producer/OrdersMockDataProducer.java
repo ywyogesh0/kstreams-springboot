@@ -7,7 +7,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.learnkafkastreams.domain.Order;
 import com.learnkafkastreams.domain.OrderLineItem;
 import com.learnkafkastreams.domain.OrderType;
-import com.learnkafkastreams.topology.OrdersTopology;
 import com.learnkafkastreams.util.Constants;
 import lombok.extern.slf4j.Slf4j;
 
