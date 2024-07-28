@@ -23,7 +23,7 @@ public class AggWindowedOrdersCountByStore implements AggHandler<Order, Store> {
         Duration windowedSize = Duration.ofSeconds(3);
         TimeWindows tumblingAggWindow = TimeWindows.ofSizeWithNoGrace(windowedSize);
 
-        // GRACE PERIOD condition -> recordPublishTimestamp <= windowEndTimestamp + afterWindowEndTimestamp
+        // GRACE PERIOD condition -> publishedRecordCurrentTimestamp <= windowEndTimestamp + afterWindowEndTimestamp
         /*Duration windowedSize = Duration.ofSeconds(60);
         Duration gracePeriod = Duration.ofSeconds(15);
         TimeWindows tumblingAggWindow = TimeWindows.ofSizeAndGrace(windowedSize, gracePeriod);*/

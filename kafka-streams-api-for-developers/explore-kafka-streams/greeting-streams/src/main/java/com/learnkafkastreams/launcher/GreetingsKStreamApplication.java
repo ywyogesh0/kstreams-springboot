@@ -47,6 +47,12 @@ public class GreetingsKStreamApplication {
                 CustomProductionExceptionHandler.class
         );
 
+        // Exactly Once Processing
+        properties.put(
+                StreamsConfig.PROCESSING_GUARANTEE_CONFIG,
+                StreamsConfig.EXACTLY_ONCE_V2
+        );
+
         // Create Topics
         /*createTopics(properties, List.of(
                 TOPIC_GREETINGS_CONSUMER,
