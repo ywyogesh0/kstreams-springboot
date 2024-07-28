@@ -20,13 +20,13 @@ public class AggWindowedOrdersCountByStore implements AggHandler<Order, Store> {
             String stateStore,
             KTable<String, Store> lookupTable
     ) {
-        /*Duration windowedSize = Duration.ofSeconds(3);
-        TimeWindows tumblingAggWindow = TimeWindows.ofSizeWithNoGrace(windowedSize);*/
+        Duration windowedSize = Duration.ofSeconds(3);
+        TimeWindows tumblingAggWindow = TimeWindows.ofSizeWithNoGrace(windowedSize);
 
-        // GRACE PERIOD condition -> recordTs/systemTs/customTs <= windowEnd + afterWindowEnd
-        Duration windowedSize = Duration.ofSeconds(60);
-        Duration gracePeriod = Duration.ofSeconds(0);
-        TimeWindows tumblingAggWindow = TimeWindows.ofSizeAndGrace(windowedSize, gracePeriod);
+        // GRACE PERIOD condition -> recordPublishTimestamp <= windowEndTimestamp + afterWindowEndTimestamp
+        /*Duration windowedSize = Duration.ofSeconds(60);
+        Duration gracePeriod = Duration.ofSeconds(15);
+        TimeWindows tumblingAggWindow = TimeWindows.ofSizeAndGrace(windowedSize, gracePeriod);*/
 
         KTable<Windowed<String>, Long> countKTable = consumerKStream
                 //.map((key, order) -> KeyValue.pair(order.locationId(), order))

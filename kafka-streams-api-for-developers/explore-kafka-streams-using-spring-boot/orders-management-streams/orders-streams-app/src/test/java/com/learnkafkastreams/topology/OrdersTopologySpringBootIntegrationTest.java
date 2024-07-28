@@ -40,7 +40,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         "spring.kafka.producer.bootstrap-servers=${spring.embedded.kafka.brokers}",
         "spring.kafka.streams.auto-startup=false"
 })
-@ActiveProfiles(value = {"test" })
+@ActiveProfiles(value = {"test"})
 public class OrdersTopologySpringBootIntegrationTest {
 
     @Autowired
