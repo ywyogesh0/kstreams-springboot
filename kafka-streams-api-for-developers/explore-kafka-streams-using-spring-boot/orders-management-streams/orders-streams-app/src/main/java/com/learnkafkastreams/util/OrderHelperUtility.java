@@ -31,7 +31,7 @@ public class OrderHelperUtility {
     }
 
     public static LocalDateTime convertInstantToLocalTime(Instant instant) {
-        return LocalDateTime.ofInstant(instant, ZoneId.of("GMT"));
+        return LocalDateTime.ofInstant(instant, ZoneId.of("Europe/London"));
     }
 
     public static Instant convertLocalToInstantTime(LocalDateTime localDateTime) {
