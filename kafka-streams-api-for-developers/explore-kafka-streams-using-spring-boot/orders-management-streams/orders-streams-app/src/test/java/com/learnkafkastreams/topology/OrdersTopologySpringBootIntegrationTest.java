@@ -25,7 +25,6 @@ import org.springframework.test.context.TestPropertySource;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -181,21 +180,21 @@ public class OrdersTopologySpringBootIntegrationTest {
         assertEquals(2, generalWindowedOrdersCount.get(1).orderCount());
 
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:51").toInstant(ZoneOffset.ofHours(1)),
-                generalWindowedOrdersCount.get(0).startWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:51"),
+                generalWindowedOrdersCount.get(0).startWindow()
         );
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:54").toInstant(ZoneOffset.ofHours(1)),
-                generalWindowedOrdersCount.get(0).endWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:54"),
+                generalWindowedOrdersCount.get(0).endWindow()
         );
 
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:54").toInstant(ZoneOffset.ofHours(1)),
-                generalWindowedOrdersCount.get(1).startWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:54"),
+                generalWindowedOrdersCount.get(1).startWindow()
         );
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:57").toInstant(ZoneOffset.ofHours(1)),
-                generalWindowedOrdersCount.get(1).endWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:57"),
+                generalWindowedOrdersCount.get(1).endWindow()
         );
 
         // restaurant orders count
@@ -214,21 +213,21 @@ public class OrdersTopologySpringBootIntegrationTest {
         assertEquals(2, restaurantWindowedOrdersCount.get(1).orderCount());
 
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:51").toInstant(ZoneOffset.ofHours(1)),
-                restaurantWindowedOrdersCount.get(0).startWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:51"),
+                restaurantWindowedOrdersCount.get(0).startWindow()
         );
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:54").toInstant(ZoneOffset.ofHours(1)),
-                restaurantWindowedOrdersCount.get(0).endWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:54"),
+                restaurantWindowedOrdersCount.get(0).endWindow()
         );
 
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:54").toInstant(ZoneOffset.ofHours(1)),
-                restaurantWindowedOrdersCount.get(1).startWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:54"),
+                restaurantWindowedOrdersCount.get(1).startWindow()
         );
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:57").toInstant(ZoneOffset.ofHours(1)),
-                restaurantWindowedOrdersCount.get(1).endWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:57"),
+                restaurantWindowedOrdersCount.get(1).endWindow()
         );
     }
 
@@ -260,21 +259,21 @@ public class OrdersTopologySpringBootIntegrationTest {
                 .compareTo(generalWindowedOrdersRevenue.get(1).totalRevenue().runningRevenue()));
 
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:51").toInstant(ZoneOffset.ofHours(1)),
-                generalWindowedOrdersRevenue.get(0).startWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:51"),
+                generalWindowedOrdersRevenue.get(0).startWindow()
         );
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:54").toInstant(ZoneOffset.ofHours(1)),
-                generalWindowedOrdersRevenue.get(0).endWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:54"),
+                generalWindowedOrdersRevenue.get(0).endWindow()
         );
 
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:54").toInstant(ZoneOffset.ofHours(1)),
-                generalWindowedOrdersRevenue.get(1).startWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:54"),
+                generalWindowedOrdersRevenue.get(1).startWindow()
         );
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:57").toInstant(ZoneOffset.ofHours(1)),
-                generalWindowedOrdersRevenue.get(1).endWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:57"),
+                generalWindowedOrdersRevenue.get(1).endWindow()
         );
 
         // restaurant orders revenue
@@ -298,21 +297,21 @@ public class OrdersTopologySpringBootIntegrationTest {
                 .compareTo(restaurantWindowedOrdersRevenue.get(1).totalRevenue().runningRevenue()));
 
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:51").toInstant(ZoneOffset.ofHours(1)),
-                restaurantWindowedOrdersRevenue.get(0).startWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:51"),
+                restaurantWindowedOrdersRevenue.get(0).startWindow()
         );
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:54").toInstant(ZoneOffset.ofHours(1)),
-                restaurantWindowedOrdersRevenue.get(0).endWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:54"),
+                restaurantWindowedOrdersRevenue.get(0).endWindow()
         );
 
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:54").toInstant(ZoneOffset.ofHours(1)),
-                restaurantWindowedOrdersRevenue.get(1).startWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:54"),
+                restaurantWindowedOrdersRevenue.get(1).startWindow()
         );
         assertEquals(
-                LocalDateTime.parse("2022-05-01T08:51:57").toInstant(ZoneOffset.ofHours(1)),
-                restaurantWindowedOrdersRevenue.get(1).endWindow().toInstant(ZoneOffset.UTC)
+                LocalDateTime.parse("2022-05-01T08:51:57"),
+                restaurantWindowedOrdersRevenue.get(1).endWindow()
         );
     }
 
